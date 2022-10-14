@@ -1,0 +1,80 @@
+#ednavbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding-top: 50px;
+  z-index:100000000;
+}
+mark2 {
+  background-color: yellow;
+  color: black;
+}
+.unibutton{
+  background-color: #4CAF50 !important; /* Green */ 
+  border: none !important;
+  color: black !important;
+  padding: 5px 5px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  font-size: 16px !important;
+  margin: 4px 2px !important;
+  cursor: pointer !important;
+  -webkit-transition-duration: 0.4s !important; /* Safari */
+  transition-duration: 0.4s !important;
+    
+} 
+
+.uninmenu{
+
+	color: #ffffff !important;
+	background-color: #000000 !important;
+	font-size: 17px !important;
+	border-radius: 20px !important;
+	padding: 5px 5px !important;
+	cursor: pointer !important;
+		}
+.uninmenu:hover {
+    color: #000000 !important;
+	background-color: #ffffff !important;
+		}
+
+
+.unienter{
+  background-color:LightGray !important; /* Green */ 
+  border: none !important;
+  color: #4CAF50 !important;
+  padding: 5 5px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  font-size: 16px !important;
+  margin: 4px 2px !important;
+  cursor: pointer !important;
+  -webkit-transition-duration: 0.4s !important; /* Safari */
+  transition-duration: 0.4s !important;
+    
+} 
+
+.unibutton:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19)
+  !important;  
+    color: #000000 !important;
+	background-color: #ffffff !important;
+}
+.highlightmenu {
+	display: none !important;
+	position: absolute !important;
+	background: #a4a4a4 !important;
+	border-radius: 6px !important;
+	
+}
+.hightlightmenu i {
+	color: #00000 !important;
+	cursor: pointer !important;
+	margin: 8px !important;
+}
+
+#wanttext {
+  
+}

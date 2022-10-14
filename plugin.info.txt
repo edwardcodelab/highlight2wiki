@@ -1,0 +1,7 @@
+base   highlight2wiki
+author dodotori @ dokuwiki forum
+email  dodotori@localhost
+date   2022-10-15
+name   highlight2wiki plugin
+desc   to highlight any article on the web
+url    https://github.com/edwardcodelab/highlight2wiki
