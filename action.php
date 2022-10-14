@@ -53,7 +53,7 @@ class action_plugin_highlight2wiki extends \dokuwiki\Extension\ActionPlugin
         //$titlestring = html_entity_decode($titlestring, ENT_COMPAT, 'UTF-8');
         $url=$_GET['ur'];
         $urlkey = crc64($url); 
-        $yournamespace = "zebra:bookmarks:highlight:";
+        $yournamespace = "bookmarks:highlight:";
         $targeturl= DOKU_BASE."doku.php?id=$yournamespace:$urlkey&do=edit"; 
         $highlightactionurl = DOKU_BASE."doku.php?do=highlight2wiki";
         echo '<p>'.$urlkey.'</p>';
