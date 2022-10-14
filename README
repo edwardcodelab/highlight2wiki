@@ -12,6 +12,11 @@ will not work!
 Please refer to http://www.dokuwiki.org/extensions for additional info
 on how to install extensions in DokuWiki.
 
+
+bookmarklet: 
+javascript:Q=document.selection?document.selection.createRange().text:document.getSelection(); void(window.open(%27https://yourwebsite.com/dokuwiki/doku.php?do=highlight2wiki&te=%27+encodeURIComponent(Q)+%27&ur=%27+ encodeURIComponent(location.href)+%27%27,%27dokuwikiadd%27,%27scrollbars=yes,resizable=yes,toolbars=yes,status=yes%27));
+
+
 ----
 Copyright (C) dodotori <dodotori@localhost>
 
