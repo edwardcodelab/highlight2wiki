@@ -7,6 +7,10 @@
    CRC64 function adapted from https://gist.github.com/hightemp/4da5ac39b8d57fcd7e7988b90a48017d
    several function adapted from stackoverflow
    
+bookmarklet: 
+javascript:Q=document.selection?document.selection.createRange().text:document.getSelection(); void(window.open(%27https://yourwebsite.com/dokuwiki/doku.php?do=highlight2wiki&te=%27+encodeURIComponent(Q)+%27&ur=%27+ encodeURIComponent(location.href)+%27%27,%27dokuwikiadd%27,%27scrollbars=yes,resizable=yes,toolbars=yes,status=yes%27));
+
+   
  */
 class action_plugin_highlight2wiki extends \dokuwiki\Extension\ActionPlugin
 {
