@@ -115,15 +115,24 @@ curl_setopt($ch, CURLOPT_URL, $url);
 $result = curl_exec($ch);
 
 $specialurl = array("bbc.co.uk", "on.cc","rthk","bbc.com","scmp.com","medium.com",); //special websites need further manipulation
-
+	    
+	    
 foreach ($specialurl as $value) { //further manipulation for special url
-  if (str_contains($url, $value)) {
+  if (function_exists('str_contains')) {
+	if (str_contains($url, $value)) {
 //    $result = str_replace(".css","",$result);
       $result = str_replace(".js","",$result);
     
    $result = preg_replace("/<\s*style.+?<\s*\/\s*style.*?>/si","", $result); 
     break;
     }
+  }else{
+       if (strpos($url, $value)) {
+      $result = str_replace(".js","",$result);
+   $result = preg_replace("/<\s*style.+?<\s*\/\s*style.*?>/si","", $result); 
+       break;
+       }
+  }
 }
 
 echo $result; 
@@ -221,4 +230,3 @@ function crc64($string, $format = '%x')
  
     return sprintf($format, $crc);
 }     
-
