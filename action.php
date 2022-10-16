@@ -99,8 +99,7 @@ class action_plugin_highlight2wiki extends \dokuwiki\Extension\ActionPlugin
 }
  
 $purl = parseurl($url);
-echo $purl;
-echo $url;
+
 	
 // Initialize a CURL session.
 $ch = curl_init();
