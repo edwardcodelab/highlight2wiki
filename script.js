@@ -26,7 +26,7 @@
             // To write the selected text into the textarea
             
               var papertitle = document.getElementsByTagName("title")[1].textContent;
-            document.testform.selectedtext.value += selectedText +"\n";
+            //document.testform.selectedtext.value += selectedText +"\n";
            if (document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value == ""){
            document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += "====== "+papertitle+" ====== \r\n [["+url+"|" + papertitle + "]][["+highlightactionurl+"&ur="+url+"|Hightlight]]--"+timestamp+"\r\n\n";
           document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += "{{tag> }}\r\n\n"; //add tag syntax        

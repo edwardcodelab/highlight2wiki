@@ -53,7 +53,10 @@ class action_plugin_highlight2wiki extends \dokuwiki\Extension\ActionPlugin
         //$titlestring = html_entity_decode($titlestring, ENT_COMPAT, 'UTF-8');
         $url=$_GET['ur'];
         $urlkey = crc64($url); 
-        $yournamespace = "bookmarks:highlight:";
+        $yournamespace = $this->getConf('highlight_namespace');
+        $clear_style = $this->getConf('clear_style');
+        $clear_javascript = $this->getConf('clear_javascript');
+        $clear_all_htmltag_attribute = $this->getConf('clear_all_htmltag_attribute');
         $targeturl= DOKU_BASE."doku.php?id=$yournamespace:$urlkey&do=edit"; 
         $highlightactionurl = DOKU_BASE."doku.php?do=highlight2wiki";
         echo '<p>'.$urlkey.'</p>';
@@ -99,6 +102,7 @@ class action_plugin_highlight2wiki extends \dokuwiki\Extension\ActionPlugin
 }
  
 $purl = parseurl($url);
+
 	
 // Initialize a CURL session.
 $ch = curl_init();
@@ -112,9 +116,31 @@ curl_setopt($ch, CURLOPT_URL, $url);
  
 $result = curl_exec($ch);
 
+
+
+
+
 $specialurl = array("bbc.co.uk", "on.cc","rthk","bbc.com","scmp.com","medium.com",); //special websites need further manipulation
-	    
-	    
+
+if($clear_style== 1){
+$result = str_replace(".css","",$result);  
+$result = preg_replace('/\sstyle=("|\').*?("|\')/i', '', $result); //remove all style
+
+
+}
+if($clear_javascript== 1){
+
+ $result = str_replace(".js","",$result);	    
+$result = preg_replace('/<script\b[^>]*>(.*?)<\/script>/is', "", $result);   
+}
+if($clear_all_htmltag_attribute== 1){
+$result = preg_replace("/<([a-z][a-z0-9]*)[^<|>]*?(\/?)>/si",'<$1$2>', $result); //remove all tag attribute    
+}
+
+
+
+
+
 foreach ($specialurl as $value) { //further manipulation for special url
   if (function_exists('str_contains')) {
 	if (str_contains($url, $value)) {
@@ -150,12 +176,13 @@ echo '
           <p> </p>
  
         </form>
-        <form name="testform" hidden="hidden" >
-            <textarea name="selectedtext" 
-                      rows="3"
-                      cols="20"></textarea> 
-        </form>';
-    
+';
+      //  <form name="testform" hidden="hidden" >
+           // <textarea name="selectedtext" 
+                      //rows="3"
+                      //cols="20"
+                     // hidden="hidden"></textarea> 
+       // </form>    
   
     
     
