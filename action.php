@@ -157,7 +157,7 @@ echo '<iframe src="'.$targeturl.'" id="edtop" width="100%" height="800 px"></ifr
          <input type="button" value="Load" class="unibutton" onmousedown="loadhighlight()";>  
          <input type = "button" value="Tag" class="unibutton" onclick="edittag()";>
          <!-- <input type="text" id="tagarea"  class="unienter" width="48" hidden="hidden" >-->
-         <input type="button" class="unibutton" value="[ GotoTop ]" onclick="document.getElementById("wanttext").scrollIntoView();" > 
+         <input type="button" class="unibutton" value="[ GotoTop ]" onclick="document.getElementById( "wanttext" ).scrollIntoView();" > 
          <!--  <input type="button" class="unibutton" value="[ CopyText ]" onclick="copytext();" hidden="hidden" > -->      
 
 </div>';
@@ -171,7 +171,7 @@ echo '<iframe src="'.$targeturl.'" id="edtop" width="100%" height="800 px"></ifr
 echo '    
         <!--Form to show the selected text as output-->
         <form align="right">
-          <input type="button" value="Go to Top " onclick="document.getElementById("wanttext").scrollIntoView();" > 
+          <input type="button" value="Go to Top " onclick="document.getElementById( "wanttext" ).scrollIntoView();" > 
           <p> </p>
  
         </form>
