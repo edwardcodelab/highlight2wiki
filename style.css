@@ -63,16 +63,16 @@ mark2 {
 	background-color: #ffffff !important;
 }
 .highlightmenu {
-	display: none !important;
-	position: absolute !important;
-	background: #a4a4a4 !important;
-	border-radius: 6px !important;
+	display: none ;
+	position: absolute ;
+	background: #a4a4a4 ;
+	border-radius: 6px ;
 	
 }
 .hightlightmenu i {
-	color: #00000 !important;
-	cursor: pointer !important;
-	margin: 8px !important;
+	color: #00000 ;
+	cursor: pointer ;
+	margin: 8px ;
 }
 
 #wanttext {
