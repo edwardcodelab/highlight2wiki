@@ -97,7 +97,7 @@ if (typeof(hlwanttext) != 'undefined' && hlwanttext != null)
 		let rect = document.querySelector("#wanttext").getBoundingClientRect();
 		menu.style.display = "block";
 		menu.style.left = pageX;  //- Math.round(rect.left) + "px";
-		menu.style.top = pageY;  - 150 //- Math.round(rect.top) - 58 + "px";
+		menu.style.top = pageY - 150; //- Math.round(rect.top) - 58 + "px";
  
 		window.addEventListener("click", (event) => {
 			if (event.target == menu) {
