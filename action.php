@@ -157,20 +157,19 @@ echo '<iframe src="'.$targeturl.'" id="edtop" width="100%" height="800 px"></ifr
          <input type="button" value="Load" class="unibutton" onmousedown="loadhighlight()";>  
          <input type = "button" value="Tag" class="unibutton" onclick="edittag()";>
          <!-- <input type="text" id="tagarea"  class="unienter" width="48" hidden="hidden" >-->
-         <input type="button" class="unibutton" value="[ GotoTop ]" onclick="document.getElementById(\'wanttext\').scrollIntoView();" > 
-         <!--  <input type="button" class="unibutton" value="[ CopyText ]" onclick="copytext();" hidden="hidden" > -->      
+         <input type="button" class="unibutton" value="GotoTo" onclick="document.getElementById(\'wanttext\').scrollIntoView();" >  
 
 </div>';
         echo'<div class="highlightmenu">
     <input type="button"
-           value="[ HighLight!! ]" class = "uninmenu"
+           value="HighLight!!" class = "uninmenu"
            onmousedown="getSelectedText()">    
-    <input type = "button" value="[  Tag  ]" class = "uninmenu" onclick="edittag()";>  <input type="button" class = "uninmenu" value="[ CopyText ]" onclick="copytext();" ><input type="button" value="[ GotoTop ]" class = "uninmenu" onclick="document.getElementById(\'wanttext\').scrollIntoView();" > 
+    <input type = "button" value="Tag" class = "uninmenu" onclick="edittag()";> <input type="button" value="GotoTop" class = "uninmenu" onclick="document.getElementById(\'wanttext\').scrollIntoView();" > 
 </div>';      
 
 echo '    
         <!--Form to show the selected text as output-->
-        <form align="right">
+        <form align="right"
           <input type="button" value="Go to Top " onclick="document.getElementById(\'wanttext\').scrollIntoView();" > 
           <p> </p>
  
