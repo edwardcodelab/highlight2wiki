@@ -106,7 +106,7 @@ $purl = parseurl($url);
 	
 // Initialize a CURL session.
 $ch = curl_init();
-   $agent = 'Mozilla/5.0 (Linux; Android 7.0; SM-G930V Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.125 Mobile Safari/537.36';
+   $agent = 'Mozilla/5.0 (Linux; Android 12; SM-G998U) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Mobile Safari/537.36';
   $curl=curl_init();
   curl_setopt($ch, CURLOPT_USERAGENT, $agent);// Return Page contents.
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
