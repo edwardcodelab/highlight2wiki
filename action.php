@@ -70,24 +70,6 @@ class action_plugin_highlight2wiki extends \dokuwiki\Extension\ActionPlugin
             console.log(titlestring + url + urlkey);
             </script>';
         
-        echo'<div id="ednavbar">
-        <!--Button to invoke the 
-         function to get the selected text-->
-        <input type="button" value="Highlight" class="unibutton" onmousedown="getSelectedText()">
-         <!--       <input type="button" value="Highlight2"  class="unibutton" onmousedown="highlight2()" hidden="hidden" >  -->     
-         <input type="button" value="Load" class="unibutton" onmousedown="loadhighlight()";>  
-         <input type = "button" value="Tag" class="unibutton" onclick="edittag()";>
-         <!-- <input type="text" id="tagarea"  class="unienter" width="48" hidden="hidden" >-->
-         <input type="button" class="unibutton" value="[ GotoTop ]" onclick="document.getElementById("wanttext").scrollIntoView();" > 
-         <!--  <input type="button" class="unibutton" value="[ CopyText ]" onclick="copytext();" hidden="hidden" > -->      
-
-</div>';
-        echo'<div class="highlightmenu">
-    <input type="button"
-           value="[ HighLight!! ]" class = "uninmenu"
-           onmousedown="getSelectedText()">    
-    <input type = "button" value="[  Tag  ]" class = "uninmenu" onclick="edittag()";>  <input type="button" class = "uninmenu" value="[ CopyText ]" onclick="copytext();" ><input type="button" value="[ GotoTop ]" class = "uninmenu" onclick="document.getElementById("wanttext").scrollIntoView();" > 
-</div>';  
         echo'<div id="wanttext">';
 
 // From URL to get webpage contents.
@@ -167,7 +149,24 @@ echo "</div>";
 
 echo '<iframe src="'.$targeturl.'" id="edtop" width="100%" height="800 px"></iframe>';
  
-    
+        echo'<div id="ednavbar">
+        <!--Button to invoke the 
+         function to get the selected text-->
+        <input type="button" value="Highlight" class="unibutton" onmousedown="getSelectedText()">
+         <!--       <input type="button" value="Highlight2"  class="unibutton" onmousedown="highlight2()" hidden="hidden" >  -->     
+         <input type="button" value="Load" class="unibutton" onmousedown="loadhighlight()";>  
+         <input type = "button" value="Tag" class="unibutton" onclick="edittag()";>
+         <!-- <input type="text" id="tagarea"  class="unienter" width="48" hidden="hidden" >-->
+         <input type="button" class="unibutton" value="[ GotoTop ]" onclick="document.getElementById("wanttext").scrollIntoView();" > 
+         <!--  <input type="button" class="unibutton" value="[ CopyText ]" onclick="copytext();" hidden="hidden" > -->      
+
+</div>';
+        echo'<div class="highlightmenu">
+    <input type="button"
+           value="[ HighLight!! ]" class = "uninmenu"
+           onmousedown="getSelectedText()">    
+    <input type = "button" value="[  Tag  ]" class = "uninmenu" onclick="edittag()";>  <input type="button" class = "uninmenu" value="[ CopyText ]" onclick="copytext();" ><input type="button" value="[ GotoTop ]" class = "uninmenu" onclick="document.getElementById("wanttext").scrollIntoView();" > 
+</div>';      
 
 echo '    
         <!--Form to show the selected text as output-->
