@@ -42,6 +42,14 @@ class action_plugin_highlight2wiki extends \dokuwiki\Extension\ActionPlugin
     public function allowMyAction(Doku_Event $event, $param) {
         if($event->data != 'highlight2wiki') return; 
         $event->preventDefault();
+	    	global $ACT, $JSINFO, $ID, $INPUT, $auth, $TPL, $INFO; 
+
+ 		//LOGIN NEEDED ?8 		//NOT LOGGED IN ? -> FORCE LOGIN
+ 		if( !$INFO['userinfo'] && $_GET['do']!='login' && $this->getConf('must_login') ) {
+ 		  header("Location: ?do=login");
+ 		  die('<a href="?do=login">LOGIN</a>');
+ 		}
+
     }
  
     public function performMyAction(Doku_Event $event, $param) {
