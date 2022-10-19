@@ -118,7 +118,7 @@ $specialurl = array("bbc.co.uk", "on.cc","rthk","bbc.com","scmp.com","medium.com
 if($clear_style== 1){
 $result = str_replace(".css","",$result);  
 $result = preg_replace('/\sstyle=("|\').*?("|\')/i', '', $result); //remove all style
-$result = preg_replace('<sup>.*?<\/sup>/gm','',$result);
+$result = preg_replace(('/<sup\b[^>]*>(.*?)<\/sup>/is'','',$result);
 
 }
 if($clear_javascript== 1){
