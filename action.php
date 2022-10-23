@@ -171,12 +171,7 @@ echo '<iframe src="'.$targeturl.'" id="edtop" width="100%" height="800 px"></ifr
          <input type="button" class="unibutton" value="GotoTo" onclick="document.getElementById(\'wanttext\').scrollIntoView();" >  
 
 </div>';
-        echo'<div class="highlightmenu">
-    <input type="button"
-           value="HighLight!!" class = "uninmenu"
-           onmousedown="getSelectedText()">    
-    <input type = "button" value="Tag" class = "uninmenu" onclick="edittag()";> <input type="button" value="GotoTop" class = "uninmenu" onclick="document.getElementById(\'wanttext\').scrollIntoView();" > 
-</div>';      
+ 
 
 echo '    
         <!--Form to show the selected text as output-->
