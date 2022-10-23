@@ -73,43 +73,7 @@ for (var j = 0; j < lines.length; j++) {
 }
 
 
-
-    
-	var pageX, pageY;
-   
-    document.addEventListener("selectionchange", () => {
-    let selection = document.getSelection();
-    let selectedText = selection.toString();
-    var menu = document.querySelector(".highlightmenu");
-    if (selectedText !== "") {
-		let rect = document.querySelector("#wanttext").getBoundingClientRect();
-		menu.style.display = "block";
-		menu.style.left = pageX;  //- Math.round(rect.left) + "px";
-		menu.style.top = pageY - 150; //- Math.round(rect.top) - 58 + "px";
- 
-		window.addEventListener("click", (event) => {
-			if (event.target == menu) {
-			}
-		});
-		} else {
-		menu.style.display = "none";
-		}
-
-
-	});
-	document.addEventListener("pointerdown", (e) => {
-		pageX = e.pageX;
-		pageY = e.pageY;
-	});
- //	document.addEventListener("pointerup", (e) => {
-//		pageX = e.pageX;
-//		pageY = e.pageY;
-//	});
- 
-
- 
-
-		function edittag(){
+function edittag(){
       var newtagselection = window.getSelection()
 	  var newtagcomponent = newtagselection.toString();
             newtagcomponent =newtagcomponent.trim();
@@ -136,18 +100,3 @@ for (var j = 0; j < lines.length; j++) {
 	  }
 	}
 
-	function copytext(){
- 
-	  let copyText = window.getSelection(); 
-	  console.log(copyText.toString());
-
-            if (document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value == "") {
-          document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += "====== "+titlestring+" ====== \r\n [["+url+"|"+titlestring+"]][["+highlightactionurl+"&ur="+url+"|Hightlight]]--"+timestamp+"\r\n\n";
-           
-            document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += "{{tag> }}\r\n\n"; //add tag syntax        
- 
-                }
-                
-            document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += copyText.toString() + "\n\n";
-        }
- 
