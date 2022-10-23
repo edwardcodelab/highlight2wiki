@@ -163,12 +163,12 @@ echo '<iframe src="'.$targeturl.'" id="edtop" width="100%" height="800 px"></ifr
         echo'<div id="ednavbar">
         <!--Button to invoke the 
          function to get the selected text-->
-        <input type="button" value="Highlight" class="unibutton"  ontouchend="getSelectedText()" onmousedown="getSelectedText()">
-         <!--       <input type="button" value="Highlight2"  class="unibutton" onmousedown="highlight2()" hidden="hidden" >  -->     
-         <input type="button" value="Load" class="unibutton" ontouchend="loadhighlight();" onmousedown="loadhighlight();">  
-         <input type = "button" value="Tag" class="unibutton" ontouchend ="edittag();" onclick="edittag();">
+        <input type="button" value="Highlight" class="unibutton"   onpointerup="getSelectedText()">
+         <!--       <input type="button" value="Highlight2"  class="unibutton" onpointerup="highlight2()" hidden="hidden" >  -->     
+         <input type="button" value="Load" class="unibutton" onpointerup="loadhighlight();">  
+         <input type = "button" value="Tag" class="unibutton" onclick="edittag();">
          <!-- <input type="text" id="tagarea"  class="unienter" width="48" hidden="hidden" >-->
-         <input type="button" class="unibutton" value="GotoTo" onclick="document.getElementById(\'wanttext\').scrollIntoView();" >  
+         <input type="button" class="unibutton" value="GotoTo" onpointerup="document.getElementById(\'wanttext\').scrollIntoView();" >  
 
 </div>';
  
