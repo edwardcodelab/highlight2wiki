@@ -165,8 +165,8 @@ echo '<iframe src="'.$targeturl.'" id="edtop" width="100%" height="800 px"></ifr
          function to get the selected text-->
         <input type="button" value="Highlight" class="unibutton" onmousedown="getSelectedText()">
          <!--       <input type="button" value="Highlight2"  class="unibutton" onmousedown="highlight2()" hidden="hidden" >  -->     
-         <input type="button" value="Load" class="unibutton" onmousedown="loadhighlight()";>  
-         <input type = "button" value="Tag" class="unibutton" onclick="edittag()";>
+         <input type="button" value="Load" class="unibutton" onmousedown="loadhighlight();">  
+         <input type = "button" value="Tag" class="unibutton" ontouchend ="edittag();" onclick="edittag();">
          <!-- <input type="text" id="tagarea"  class="unienter" width="48" hidden="hidden" >-->
          <input type="button" class="unibutton" value="GotoTo" onclick="document.getElementById(\'wanttext\').scrollIntoView();" >  
 
