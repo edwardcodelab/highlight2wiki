@@ -65,9 +65,9 @@ class action_plugin_highlight2wiki extends \dokuwiki\Extension\ActionPlugin
         $url=$_GET['ur'];
         $urlkey = crc64($url); 
         $yournamespace = $this->getConf('highlight_namespace');
-        $clear_style = $this->getConf('clear_style');
-        $clear_javascript = $this->getConf('clear_javascript');
-        $clear_all_htmltag_attribute = $this->getConf('clear_all_htmltag_attribute');
+        $readability = $this->getConf('readability');
+        $allowed_tags = $this->getConf('allowed_html_tags');
+        $specialurl = $this->getConf('specialurl');
         $targeturl= DOKU_BASE."doku.php?id=$yournamespace:$urlkey&do=edit"; 
         $highlightactionurl = DOKU_BASE."doku.php?do=highlight2wiki";
         echo '<p>'.$urlkey.'</p>';
@@ -109,55 +109,67 @@ curl_setopt($ch, CURLOPT_URL, $url);
  
 $result = curl_exec($ch);
 
-
-
-
-
-$specialurl = array("bbc.co.uk", "on.cc","rthk","bbc.com","scmp.com","medium.com",); //special websites need further manipulation
-
-if($clear_style== 1){
-$result = str_replace(".css","",$result);  
-$result = preg_replace('/\sstyle=("|\').*?("|\')/i', '', $result); //remove all style
-$result = preg_replace('/<sup\b[^>]*>(.*?)<\/sup>/is','',$result);
-
-}
-if($clear_javascript== 1){
-
- $result = str_replace(".js","",$result);	    
-$result = preg_replace('/<script\b[^>]*>(.*?)<\/script>/is', "", $result);   
-}
-if($clear_all_htmltag_attribute== 1){
-$result = preg_replace("/<([a-z][a-z0-9]*)[^<|>]*?(\/?)>/si",'<$1$2>', $result); //remove all tag attribute    
-}
-
-
-
-
-
 foreach ($specialurl as $value) { //further manipulation for special url
   if (function_exists('str_contains')) {
 	if (str_contains($url, $value)) {
-//    $result = str_replace(".css","",$result);
-      $result = str_replace(".js","",$result);
-    
-   $result = preg_replace("/<\s*style.+?<\s*\/\s*style.*?>/si","", $result); 
+    $result = str_replace(".js","",$result);
+    $result = preg_replace("/<\s*style.+?<\s*\/\s*style.*?>/si","", $result); 
+    $result2=$result;
+    $result="";
+    echo $result2;
     break;
     }
   }else{
-       if (strpos($url, $value)) {
-      $result = str_replace(".js","",$result);
-   $result = preg_replace("/<\s*style.+?<\s*\/\s*style.*?>/si","", $result); 
+    if (strpos($url, $value)) {
+    $result = str_replace(".js","",$result);
+    $result = preg_replace("/<\s*style.+?<\s*\/\s*style.*?>/si","", $result); 
+    $result2=$result;
+    $result="";
+    echo $result2;
        break;
        }
   }
 }
 
-echo $result; 
-echo "</div>";
-        
-        
-        
 
+if($readability=="1"){
+/*  DOM parser stripper from https://stackoverflow.com/questions/8021543/extract-all-the-text-and-img-tags-from-html-in-php  */
+if($result!=""){
+$result = preg_replace('/<script\b[^>]*>(.*?)<\/script>/is', "", $result);
+//$allowed_tags = '<html><head><sub><sup><u><frame><svg><table><th><tr><td><col><tfoot><thead><span><title><body><a><font><dt><img><br><code><data><canvas><li><p><h1><h2><h3><h4><h5>';            
+
+
+$allowed_attributes = array('lang','src'); 
+
+$html = strip_tags($result, $allowed_tags);
+$dom = new DOMDocument();
+
+$dom->loadHTML($result);
+
+foreach($dom->getElementsByTagName('*') as $node)
+{
+    foreach($node->attributes as $attribute)
+    {
+        if (in_array($attribute->name, $allowed_attributes)) continue;
+        $node->removeAttributeNode($attribute);
+    }
+}
+
+$html = $dom->saveHTML($dom->getElementsByTagname('html')->item(0));
+
+echo $html;
+        
+      
+   
+}          
+}
+  
+
+
+
+echo "</div>";  
+
+/*  dokuwiki editor iframe  */
 echo '<iframe src="'.$targeturl.'" id="edtop" width="100%" height="800 px"></iframe>';
  
         echo'<div id="ednavbar">
