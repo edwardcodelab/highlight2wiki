@@ -68,6 +68,7 @@ class action_plugin_highlight2wiki extends \dokuwiki\Extension\ActionPlugin
         $targeturl= DOKU_BASE."doku.php?id=$yournamespace:$urlkey&do=edit"; 
         $highlightactionurl = DOKU_BASE."doku.php?do=highlight2wiki";
         echo '<p>'.$urlkey.'</p>';
+	echo '<p>'.$yournamespace/'</p>';
         echo '<script>
             var titlestring ="'.$titlestring.'";
             var url = "'.$url.'"
