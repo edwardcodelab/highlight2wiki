@@ -65,7 +65,6 @@ class action_plugin_highlight2wiki extends \dokuwiki\Extension\ActionPlugin
         $url=$_GET['ur'];
         $urlkey = crc64($url); 
         $yournamespace = $this->getConf('highlight_namespace');
-        $readability = $this->getConf('readability');
         $targeturl= DOKU_BASE."doku.php?id=$yournamespace:$urlkey&do=edit"; 
         $highlightactionurl = DOKU_BASE."doku.php?do=highlight2wiki";
         echo '<p>'.$urlkey.'</p>';
@@ -107,7 +106,7 @@ curl_setopt($ch, CURLOPT_URL, $url);
  
 $result = curl_exec($ch);
 
-if($readability=="1"){
+
 /*  DOM parser stripper from https://stackoverflow.com/questions/8021543/extract-all-the-text-and-img-tags-from-html-in-php  */
 if($result!=""){
 $result = preg_replace('/<script\b[^>]*>(.*?)<\/script>/is', "", $result);
@@ -136,8 +135,8 @@ echo $html;
         
 
 }          
-}
-  
+
+ 
 
 
 
