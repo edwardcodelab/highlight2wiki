@@ -88,7 +88,7 @@ a,
   text-rendering: optimizeLegibility;
 }
 
-div {
+body,div {
     background: white;
 
 }
