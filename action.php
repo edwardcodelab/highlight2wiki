@@ -118,7 +118,7 @@ $result = curl_exec($ch);
 if($result!=""){
 
 
-$allowed_tags = '<head><meta><style><script><body><sub><sup><u><frame><iframe><div><svg><table><th><tr><td><col><tfoot><thead><span><title><a><font><dt><img><br><code><data><canvas><li><p><h1><h2><h3><h4><h5>';            
+$allowed_tags = '<html><title><head><meta><style><script><body><sub><sup><u><frame><iframe><div><svg><table><th><tr><td><col><tfoot><thead><span><a><font><dt><img><br><code><data><canvas><li><p><h1><h2><h3><h4><h5>';            
         
 
 $allowed_attributes = array('charset','lang','src'); 
