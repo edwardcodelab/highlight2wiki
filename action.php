@@ -135,8 +135,8 @@ foreach($dom->getElementsByTagName('*') as $node)
 }
 
 $html = $dom->saveHTML($dom->getElementsByTagname('html')->item(0));
-$html = str_replace_json("<body>", "", $html);
-$html = str_replace_json("</body>", "", $html);	
+$html = str_replace("<body>", "", $html);
+$html = str_replace("</body>", "", $html);	
 echo $html;
         
 
