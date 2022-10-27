@@ -85,9 +85,7 @@ i,
 a,
 .first-letter,
 .authorName a {
-  color: rgba(0, 0, 0, 0.84);
   text-rendering: optimizeLegibility;
-  background: #FFFFFF;
 }
 
 
@@ -134,13 +132,11 @@ blockquote {
   overflow-wrap: break-word;
   margin: 55px 0 33px 0;
   /* text-align: center; */
-  color: rgba(0, 0, 0, 0.68);
   padding: 0 0 0 50px;
 }
 
 code {
   font-size: 18px;
-  background: rgba(0,0,0,.05);
   border-radius: 2px;
   padding: 3px 5px;
 }
@@ -162,7 +158,6 @@ mark, .highlighted {
 
 .subtitle {
   font-family: "Lato", sans-serif;
-  color: rgba(0, 0, 0, 0.54);
   margin: 0 0 24px 0;
 }
   
