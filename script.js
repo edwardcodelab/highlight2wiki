@@ -87,7 +87,7 @@ function edittag(){
       }
 	  console.log(newtagcomponent.toString());
 	  var textArea = document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value; 
-      var newtextArea
+      var newtextArea;
 	  if(textArea.match(/\{{tag>(.+?)\}}/i)!=null){
             console.log("not null");
         	  var textareamatch = textArea.match(/\{{tag>(.+?)\}}/i);
