@@ -123,7 +123,7 @@ $allowed_tags = '<head><meta><style><script><body><sub><sup><u><frame><iframe><d
 
 $allowed_attributes = array('charset','lang','src'); 
 
-
+$html=$result;
 //$html = strip_tags($result, $allowed_tags);
 $dom = new DOMDocument();
 
