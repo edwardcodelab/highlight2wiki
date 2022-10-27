@@ -124,7 +124,7 @@ $allowed_tags = '<head><meta><style><script><body><sub><sup><u><frame><iframe><d
 $allowed_attributes = array('charset','lang','src'); 
 
 
-$html = strip_tags($result, $allowed_tags);
+//$html = strip_tags($result, $allowed_tags);
 $dom = new DOMDocument();
 
 $dom->loadHTML($html);
