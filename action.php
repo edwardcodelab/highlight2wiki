@@ -65,8 +65,10 @@ class action_plugin_highlight2wiki extends \dokuwiki\Extension\ActionPlugin
         $url=$_GET['ur'];
         $urlkey = crc64($url); 
         $yournamespace = $this->getConf('highlight_namespace');
-        $allowed_tags = $this->getConf('allowed_tags');            
-	$targeturl= DOKU_BASE."doku.php?id=$yournamespace:$urlkey&do=edit"; 
+        $allowed_tags = $this->getConf('allowed_tags');
+        $allow_css = $this->getConf('allow_css');
+        $allow_javascript = $this->getConf('allow_javascript');
+	    $targeturl= DOKU_BASE."doku.php?id=$yournamespace:$urlkey&do=edit"; 
         $highlightactionurl = DOKU_BASE."doku.php?do=highlight2wiki";
 	
         echo '<p>'.$urlkey.'</p>';
@@ -103,22 +105,19 @@ $ch = curl_init();
   $curl=curl_init();
   curl_setopt($ch, CURLOPT_USERAGENT, $agent);// Return Page contents.
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
- 
+  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 //grab URL and pass it to the variable.
 curl_setopt($ch, CURLOPT_URL, $url);
  
 $result = curl_exec($ch);
+//$result= file_get_contents($url);
 
 
 /*  DOM parser stripper from https://stackoverflow.com/questions/8021543/extract-all-the-text-and-img-tags-from-html-in-php  */
 if($result!=""){
-$result = preg_replace('/<script\b[^>]*>(.*?)<\/script>/is', "", $result);
-//$allowed_tags = '<html><head><sub><sup><u><frame><svg><table><th><tr><td><col><tfoot><thead><span><title><body><a><font><dt><img><br><code><data><canvas><li><p><h1><h2><h3><h4><h5>';            
 
+$allowed_attributes = array('charset','lang','src'); 
 
-$allowed_attributes = array('lang','src'); 
-
-$html = strip_tags($result, $allowed_tags);
 $dom = new DOMDocument();
 
 $dom->loadHTML($result);
@@ -132,12 +131,21 @@ foreach($dom->getElementsByTagName('*') as $node)
     }
 }
 
-$html = $dom->saveHTML($dom->getElementsByTagname('body')->item(0));
+$html = $dom->saveHTML($dom->getElementsByTagname('html')->item(0));
+if($allow_css==0){
 
+$html = preg_replace('/\sstyle=("|\').*?("|\')/i', '', $html);}
+if($allow_javascript==0){
+
+$html = preg_replace('/<\s*script.+?<\s*\/\s*script.*?>/si', ' ', $html );  
+}
+	
 echo $html;
-        
+	
 
-}          
+}
+
+         
 
  
 
@@ -180,18 +188,9 @@ echo '
     
 } //end of performMyAction
 
+} // end of class
 
 
-
-
-
-
-
-
-
-
-
-}
 
 function crc64Table() //CRC64 hasing for encoding 
 {
@@ -219,6 +218,15 @@ function crc64Table() //CRC64 hasing for encoding
     return $crc64tab;
 }
  
+
+
+//https://www.php.net/manual/en/function.str-replace.php#100871
+
+
+
+
+
+
 /**
 * @param string $string
 * @param string $format
