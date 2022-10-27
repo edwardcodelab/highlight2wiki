@@ -24,9 +24,9 @@
                 selectedText = document.selection.createRange().text;
             } else return;
             // To write the selected text into the textarea
-            if (document.getElementsByTagName("title")[1] !=null{
+            if (document.getElementsByTagName("title")[1] !=null){
 	    var papertitle = document.getElementsByTagName("title")[1].textContent;
-		}else {
+		}else{
 	    var papertitle = url;
 		}
 	    
