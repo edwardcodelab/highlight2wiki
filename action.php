@@ -132,7 +132,7 @@ foreach($dom->getElementsByTagName('*') as $node)
     }
 }
 
-$html = $dom->saveHTML($dom->getElementsByTagname('html')->item(0));
+$html = $dom->saveHTML($dom->getElementsByTagname('body')->item(0));
 
 echo $html;
         
