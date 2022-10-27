@@ -137,7 +137,7 @@ foreach($dom->getElementsByTagName('*') as $node)
 $html = $dom->saveHTML($dom->getElementsByTagname('html')->item(0));
 $html = strip_tags($result, $allowed_tags);
 preg_match_all ("/<(.+?)[\s]*\/?[\s]*>(.+?)<\/.+?>/g", $html, $clearhtml);
-$html = implode($clearhtml);
+$html = implode(" ",$clearhtml);
 	
 echo $html;
         
