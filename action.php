@@ -110,10 +110,9 @@ $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
  
 $result = curl_exec($ch);
+//$result= file_get_contents($url);
 
 
-
-//echo $result;
 /*  DOM parser stripper from https://stackoverflow.com/questions/8021543/extract-all-the-text-and-img-tags-from-html-in-php  */
 if($result!=""){
 
@@ -165,7 +164,7 @@ echo '<iframe src="'.$targeturl.'" id="edtop" width="100%" height="800 px"></ifr
          <input type="button" value="Load" class="unibutton" onpointerup="loadhighlight();">  
          <input type = "button" value="Tag" class="unibutton" onclick="edittag();">
          <!-- <input type="text" id="tagarea"  class="unienter" width="48" hidden="hidden" >-->
-         <input type="button" class="unibutton" value="GotoTop" onpointerup="document.getElementById(\'wanttext\').scrollIntoView();" >  
+         <input type="button" class="unibutton" value="GotoTo" onpointerup="document.getElementById(\'wanttext\').scrollIntoView();" >  
 
 </div>';
  
