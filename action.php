@@ -116,7 +116,7 @@ $result = curl_exec($ch);
 if($result!=""){
 //$result = preg_replace('/<script\b[^>]*>(.*?)<\/script>/is', "", $result);
 //$allowed_tags = '<html><head><sub><sup><u><frame><svg><table><th><tr><td><col><tfoot><thead><span><title><body><a><font><dt><img><br><code><data><canvas><li><p><h1><h2><h3><h4><h5>';            
-
+echo <p>$allowed_tags</p>;
 
 $allowed_attributes = array('lang','src'); 
 
@@ -135,8 +135,7 @@ foreach($dom->getElementsByTagName('*') as $node)
 }
 
 $html = $dom->saveHTML($dom->getElementsByTagname('html')->item(0));
-$html = str_replace("<body>", "", $html);
-$html = str_replace("</body>", "", $html);	
+
 echo $html;
         
 
