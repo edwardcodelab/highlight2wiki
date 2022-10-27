@@ -116,12 +116,7 @@ $result = curl_exec($ch);
 //echo $result;
 /*  DOM parser stripper from https://stackoverflow.com/questions/8021543/extract-all-the-text-and-img-tags-from-html-in-php  */
 if($result!=""){
-if($allow_css==0){
-$result = preg_replace('/<\s*style.+?<\s*\/\s*style.*?>/si', ' ', $result );    
-}
-if($allow_javascript==0){
-$result = preg_replace('/<\s*script.+?<\s*\/\s*script.*?>/si', ' ', $result );    
-}
+
 
 $allowed_tags = '<head><meta><style><script><body><sub><sup><u><frame><iframe><div><svg><table><th><tr><td><col><tfoot><thead><span><title><a><font><dt><img><br><code><data><canvas><li><p><h1><h2><h3><h4><h5>';            
         
@@ -144,7 +139,13 @@ foreach($dom->getElementsByTagName('*') as $node)
 }
 
 $html = $dom->saveHTML($dom->getElementsByTagname('body')->item(0));
-$html = strip_tags($html, $allowed_tags);
+if($allow_css==0){
+$html = preg_replace('/<\s*style.+?<\s*\/\s*style.*?>/si', ' ', $html );    
+}
+if($allow_javascript==0){
+$html = preg_replace('/<\s*script.+?<\s*\/\s*script.*?>/si', ' ', $html );    
+}
+	
 echo $html;
 	
 
