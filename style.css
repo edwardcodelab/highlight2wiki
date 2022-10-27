@@ -77,7 +77,7 @@ mark2 {
 
 #wanttext {
 /* css adapted from https://github.com/lucagez/medium.css/blob/master/medium.css */
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Lora|Playfair+Display:700i,900');
+/*@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Lora|Playfair+Display:700i,900');*/
 h1,
 h2,
 p,
@@ -93,14 +93,12 @@ li {
     display: inline;
 }
 h1 {
-  font-family: "Playfair Display", serif;
   font-size: 48px;
   text-align: left;
   margin-bottom: 8px;
 }
 
 h2 {
-  font-family: "Lato", sans-serif;
   font-size: 26px;
   font-weight: 700;
   padding: 0;
@@ -124,7 +122,6 @@ a {
 }
 
 blockquote {
-  font-family: "Playfair Display", serif;
   font-size: 30px;
   font-style: italic;
   letter-spacing: -0.36px;
@@ -147,7 +144,6 @@ mark, .highlighted {
 
 .first-letter {
   overflow-wrap: break-word;
-  font-family: "Playfair Display", serif;
   font-size: 60px;
   line-height: 60px;
   display: block;
@@ -157,7 +153,6 @@ mark, .highlighted {
 }
 
 .subtitle {
-  font-family: "Lato", sans-serif;
   margin: 0 0 24px 0;
 }
   
