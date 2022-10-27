@@ -103,13 +103,13 @@ $ch = curl_init();
   $curl=curl_init();
   curl_setopt($ch, CURLOPT_USERAGENT, $agent);// Return Page contents.
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
- 
+  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 //grab URL and pass it to the variable.
 curl_setopt($ch, CURLOPT_URL, $url);
  
 $result = curl_exec($ch);
 	    
-echo file_get_contents($url);
+//$result = file_get_contents($url);
 	    
 //echo $result;
 /*  DOM parser stripper from https://stackoverflow.com/questions/8021543/extract-all-the-text-and-img-tags-from-html-in-php  */
@@ -136,7 +136,7 @@ foreach($dom->getElementsByTagName('*') as $node)
 
 $html = $dom->saveHTML($dom->getElementsByTagname('html')->item(0));
 
-//echo $html;
+echo $html;
         
 
 }          
