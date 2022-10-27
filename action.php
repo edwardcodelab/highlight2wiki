@@ -123,7 +123,7 @@ if($allow_javascript==0){
 $result = preg_replace('/<\s*script.+?<\s*\/\s*script.*?>/si', ' ', $result );    
 }
 
-$allowed_tags = '<head><meta><body><sub><sup><u><frame><iframe><div><svg><table><th><tr><td><col><tfoot><thead><span><title><a><font><dt><img><br><code><data><canvas><li><p><h1><h2><h3><h4><h5>';            
+//$allowed_tags = '<head><meta><body><sub><sup><u><frame><iframe><div><svg><table><th><tr><td><col><tfoot><thead><span><title><a><font><dt><img><br><code><data><canvas><li><p><h1><h2><h3><h4><h5>';            
         
 
 $allowed_attributes = array('charset','lang','src'); 
