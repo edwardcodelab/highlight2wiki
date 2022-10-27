@@ -88,6 +88,10 @@ a,
   text-rendering: optimizeLegibility;
 }
 
+div {
+    backround: white;
+
+}
 
 li {
     display: inline;
