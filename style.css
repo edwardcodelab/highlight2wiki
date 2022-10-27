@@ -26,17 +26,24 @@ mark2 {
 } 
 
 .uninmenu{
+
+	color: #ffffff !important;
+	background-color: #000000 !important;
 	font-size: 17px !important;
 	border-radius: 20px !important;
 	padding: 5px 5px !important;
 	cursor: pointer !important;
 		}
 .uninmenu:hover {
+    color: #000000 !important;
+	background-color: #ffffff !important;
 		}
 
 
 .unienter{
+  background-color:LightGray !important; /* Green */ 
   border: none !important;
+  color: #4CAF50 !important;
   padding: 5 5px !important;
   text-align: center !important;
   text-decoration: none !important;
@@ -52,15 +59,18 @@ mark2 {
 .unibutton:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19)
   !important;  
+    color: #000000 !important;
 	background-color: #ffffff !important;
 }
 .highlightmenu {
 	display: none ;
 	position: absolute ;
+	background: #a4a4a4 ;
 	border-radius: 6px ;
 	
 }
 .hightlightmenu i {
+	color: #00000 ;
 	cursor: pointer ;
 	margin: 8px ;
 }
@@ -75,7 +85,9 @@ i,
 a,
 .first-letter,
 .authorName a {
+  color: rgba(0, 0, 0, 0.84);
   text-rendering: optimizeLegibility;
+  background: #FFFFFF;
 }
 
 
@@ -122,16 +134,19 @@ blockquote {
   overflow-wrap: break-word;
   margin: 55px 0 33px 0;
   /* text-align: center; */
+  color: rgba(0, 0, 0, 0.68);
   padding: 0 0 0 50px;
 }
 
 code {
   font-size: 18px;
+  background: rgba(0,0,0,.05);
   border-radius: 2px;
   padding: 3px 5px;
 }
 
 mark, .highlighted {
+  background: #7DFFB3;
 }
 
 .first-letter {
@@ -147,6 +162,7 @@ mark, .highlighted {
 
 .subtitle {
   font-family: "Lato", sans-serif;
+  color: rgba(0, 0, 0, 0.54);
   margin: 0 0 24px 0;
 }
   
