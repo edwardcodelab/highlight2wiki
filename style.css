@@ -10,9 +10,7 @@ mark2 {
   color: black;
 }
 .unibutton{
-  background-color: #4CAF50; /* Green */ 
   border: none;
-  color: black ;
   padding: 5px 5px;
   text-align: center ;
   text-decoration: none ;
@@ -27,8 +25,6 @@ mark2 {
 
 .uninmenu{
 
-	color: #ffffff ;
-	background-color: #000000 ;
 	font-size: 17px ;
 	border-radius: 20px ;
 	padding: 5px 5px ;
@@ -41,7 +37,6 @@ mark2 {
 
 
 .unienter{
-  background-color:LightGray ; /* Green */ 
   border: none ;
   color: #4CAF50 ;
   padding: 5 5px ;
@@ -65,33 +60,18 @@ mark2 {
 .highlightmenu {
 	display: none ;
 	position: absolute ;
-	background: #a4a4a4 ;
 	border-radius: 6px ;
 	
 }
 .hightlightmenu i {
-	color: #00000 ;
 	cursor: pointer ;
 	margin: 8px ;
 }
 
 #wanttext {
 /* css adapted from https://github.com/lucagez/medium.css/blob/master/medium.css */
-/*@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Lora|Playfair+Display:700i,900');*/
-h1,
-h2,
-p,
-i,
-a,
-.first-letter,
-.authorName a {
-  text-rendering: optimizeLegibility;
-}
-
-body,div {
-
-
-}
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Lora|Playfair+Display:700i,900');
+h1, h2, p, i, a { text-rendering:optimizeLegibility; }
 
 li {
     display: inline;
