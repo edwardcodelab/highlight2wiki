@@ -110,7 +110,7 @@ curl_setopt($ch, CURLOPT_URL, $url);
 $result = curl_exec($ch);
 
 	    
-echo $reult;
+echo $result;
 /*  DOM parser stripper from https://stackoverflow.com/questions/8021543/extract-all-the-text-and-img-tags-from-html-in-php  */
 if($result!=""){
 //$result = preg_replace('/<script\b[^>]*>(.*?)<\/script>/is', "", $result);
