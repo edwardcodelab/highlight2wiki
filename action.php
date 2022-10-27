@@ -133,7 +133,7 @@ foreach($dom->getElementsByTagName('*') as $node)
         $node->removeAttributeNode($attribute);
     }
 }
-
+$html = strip_tags($result, $allowed_tags);
 $html = $dom->saveHTML($dom->getElementsByTagname('html')->item(0));
 
 echo $html;
