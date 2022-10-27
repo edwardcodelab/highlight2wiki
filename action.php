@@ -110,24 +110,18 @@ $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
  
 $result = curl_exec($ch);
-	    
-//$result = file_get_contents($url);
-	    
+
+
+
 //echo $result;
 /*  DOM parser stripper from https://stackoverflow.com/questions/8021543/extract-all-the-text-and-img-tags-from-html-in-php  */
 if($result!=""){
 
-
-$allowed_tags = '<html><title><head><meta><style><script><body><sub><sup><u><frame><iframe><div><svg><table><th><tr><td><col><tfoot><thead><span><a><font><dt><img><br><code><data><canvas><li><p><h1><h2><h3><h4><h5>';            
-        
-
 $allowed_attributes = array('charset','lang','src'); 
 
-$html=$result;
-//$html = strip_tags($result, $allowed_tags);
 $dom = new DOMDocument();
 
-$dom->loadHTML($html);
+$dom->loadHTML($result);
 
 foreach($dom->getElementsByTagName('*') as $node)
 {
@@ -138,12 +132,13 @@ foreach($dom->getElementsByTagName('*') as $node)
     }
 }
 
-$html = $dom->saveHTML($dom->getElementsByTagname('body')->item(0));
+$html = $dom->saveHTML($dom->getElementsByTagname('html')->item(0));
 if($allow_css==0){
-$html = preg_replace('/<\s*style.+?<\s*\/\s*style.*?>/si', ' ', $html );    
-}
+
+$html = preg_replace('/\sstyle=("|\').*?("|\')/i', '', $html);}
 if($allow_javascript==0){
-$html = preg_replace('/<\s*script.+?<\s*\/\s*script.*?>/si', ' ', $html );    
+
+$html = preg_replace('/<\s*script.+?<\s*\/\s*script.*?>/si', ' ', $html );  
 }
 	
 echo $html;
@@ -194,35 +189,9 @@ echo '
     
 } //end of performMyAction
 
+} // end of class
 
 
-function strip_tags_content($text, $tags = '', $invert = FALSE) {
-
-  preg_match_all('/<(.+?)[\s]*\/?[\s]*>/si', trim($tags), $tags);
-  $tags = array_unique($tags[1]);
-
-  if(is_array($tags) AND count($tags) > 0) {
-    if($invert == FALSE) {
-      return preg_replace('@<(?!(?:'. implode('|', $tags) .')\b)(\w+)\b.*?>.*?</\1>@si', '', $text);
-    }
-    else {
-      return preg_replace('@<('. implode('|', $tags) .')\b.*?>.*?</\1>@si', '', $text);
-    }
-  }
-  elseif($invert == FALSE) {
-    return preg_replace('@<(\w+)\b.*?>.*?</\1>@si', '', $text);
-  }
-  return $text;
-}
-
-
-
-
-
-
-
-
-}
 
 function crc64Table() //CRC64 hasing for encoding 
 {
