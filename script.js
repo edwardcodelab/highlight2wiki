@@ -90,8 +90,6 @@ for (var j = 0; j < lines.length; j++) {
  //document.testform.selectedtext.value += lines[j];
 }
 }		
-}
-
 
 
 function highlight2(text) {
