@@ -1,8 +1,8 @@
 #ednavbar {
   position: fixed;
-  top: 0;
+  top: 20%;
   width: 100%;
-  padding-top: 70px;
+  padding-top: 0px;
   z-index:100000000;
 }
 mark2 {
