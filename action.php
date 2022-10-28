@@ -130,7 +130,7 @@ foreach($dom->getElementsByTagName('*') as $node)
         $node->removeAttributeNode($attribute);
     }
 }
-
+$titles = $dom->getElementsByTagName('title')->item(0);
 $html = $dom->saveHTML($dom->getElementsByTagname('html')->item(0));
 if($allow_css==0){
 
@@ -139,7 +139,8 @@ if($allow_javascript==0){
 
 $html = preg_replace('/<\s*script.+?<\s*\/\s*script.*?>/si', ' ', $html );  
 }
-	
+
+echo $titles;
 echo $html;
 	
 
