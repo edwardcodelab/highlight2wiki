@@ -74,7 +74,7 @@ class action_plugin_highlight2wiki extends \dokuwiki\Extension\ActionPlugin
 	 
 	  echo "<p>put your link here:</p>";
 	 echo '<input id="linktogo">';
-	 echo '<input type="button" onclick="location.href="?do=highlight2wiki&ti=" + getElementById("linktogo").value" value="Highlight2wiki">';
+	 echo '<input type="button" onclick="location.href="?do=highlight2wiki&ti=" + getElementById("linktogo").value value="Highlight2wiki">';
 	    
 	    
         echo '<p>'.$urlkey.'</p>';
