@@ -154,6 +154,9 @@ echo '<meta Content-Type" content="text/html; charset="UTF-8">';
 $titles = $dom->saveHTML($dom->getElementsByTagName('title')->item(0));
 $html = $dom->saveHTML($dom->getElementsByTagname('body')->item(0));
 
+$html = str_replace(<body, "", $html);
+$html = str_replace(</body>, "", $html);
+
 
 echo $titles;
 echo $html;
