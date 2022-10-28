@@ -109,11 +109,11 @@ $ch = curl_init();
 //grab URL and pass it to the variable.
 curl_setopt($ch, CURLOPT_URL, $url);
  
-$result = curl_exec($ch);
+//$result = curl_exec($ch);
 $result2= file_get_contents($url);
-if(strcmp($result, $result2)<"0"){
+//if(strcmp($result, $result2)<"0"){
 $result = $result2;
-}
+//}
 
 /*  DOM parser stripper from https://stackoverflow.com/questions/8021543/extract-all-the-text-and-img-tags-from-html-in-php  */
 if($result!=""){
