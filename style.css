@@ -71,6 +71,7 @@ mark2 {
 #wanttext {
 /* css adapted from https://github.com/lucagez/medium.css/blob/master/medium.css */
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700|Lora|Playfair+Display:700i,900');
+
 h1, h2, p, i, a { text-rendering:optimizeLegibility; }
 
 li {
@@ -92,7 +93,7 @@ h2 {
   letter-spacing: -0.45px;
 }
 
-p, i, a {
+p, i, li {
   margin-top: 21px;
   font-family: "Lora";
   font-size: 21px;
@@ -102,7 +103,6 @@ p, i, a {
 
 a {
   text-decoration: underline;
-  font-size: 21px;
 }
 
 blockquote {
