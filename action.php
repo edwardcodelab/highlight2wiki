@@ -115,43 +115,49 @@ $result = curl_exec($ch);
 
 /*  DOM parser stripper from https://stackoverflow.com/questions/8021543/extract-all-the-text-and-img-tags-from-html-in-php  */
 if($result!=""){
-
-$allowed_attributes = array('charset','lang','src'); 
+//preg_match('/lang=(["\'])?((?:.(?!\1|>))*.?)/',$result,$matchlang); 
+$allowed_attributes = array('charset','lang','src','href'); 
 
 $dom = new DOMDocument();
 
-$dom->loadHTML($result);
 
+//$dom->loadHTML($result);    
+$dom->loadHTML(mb_convert_encoding($result, 'HTML-ENTITIES', 'UTF-8'));    
+
+
+
+//mb_convert_encoding($data, 'HTML-ENTITIES', 'UTF-8')
 foreach($dom->getElementsByTagName('*') as $node)
 {
     foreach($node->attributes as $attribute)
     {
-        if (in_array($attribute->name, $allowed_attributes)) continue;
+        if (in_array($attribute->name, $allowed_attributes)) {
+            continue;
+        }
         $node->removeAttributeNode($attribute);
     }
 }
-echo '<meta charset="UTF-8"/>';
+
+if($allow_javascript==0){  //javascript_conf
+/*$html = preg_replace('/<\s*script.+?<\s*\/\s*script.*?>/si', ' ', $html );  */ 
+foreach($dom->getElementsByTagName('script') as $node){$node->nodeValue="";}
+}
+
+if($allow_css==0){ //css conf
+/*$html = preg_replace('/<\s*style.+?<\s*\/\s*script.*?>/si', ' ', $html );  */
+foreach($dom->getElementsByTagName('style') as $node){$node->nodeValue="";}
+}
+
+
+//echo '<meta lang="'.$matchlang[2].'"><html>';
+echo '<meta Content-Type" content="text/html; charset="UTF-8">';
 $titles = $dom->saveHTML($dom->getElementsByTagName('title')->item(0));
 $html = $dom->saveHTML($dom->getElementsByTagname('body')->item(0));
-if($allow_css==0){
 
-$html = preg_replace('/\sstyle=("|\').*?("|\')/i', '', $html);}
-if($allow_javascript==0){
-
-$html = preg_replace('/<\s*script.+?<\s*\/\s*script.*?>/si', ' ', $html );  
-}
 
 echo $titles;
 echo $html;
-	
-
 }
-
-         
-
- 
-
-
 
 echo "</div>";  
 
@@ -257,3 +263,25 @@ function crc64($string, $format = '%x')
  
     return sprintf($format, $crc);
 }     
+
+
+
+
+//check itf-8 //floern.com/;
+
+function is_utf8($str) {
+    $strlen = strlen($str);
+    for ($i = 0; $i < $strlen; $i++) {
+        $ord = ord($str[$i]);
+        if ($ord < 0x80) continue; // 0bbbbbbb
+        elseif (($ord & 0xE0) === 0xC0 && $ord > 0xC1) $n = 1; // 110bbbbb (exkl C0-C1)
+        elseif (($ord & 0xF0) === 0xE0) $n = 2; // 1110bbbb
+        elseif (($ord & 0xF8) === 0xF0 && $ord < 0xF5) $n = 3; // 11110bbb (exkl F5-FF)
+        else return false; // invalid UTF-8-Zeichen
+        for ($c=0; $c<$n; $c++) // $n following bytes? // 10bbbbbb
+            if (++$i === $strlen || (ord($str[$i]) & 0xC0) !== 0x80)
+                return false; // invalid UTF-8 char
+    }
+    return true; // didn't find any invalid characters
+}
+
