@@ -111,7 +111,7 @@ curl_setopt($ch, CURLOPT_URL, $url);
  
 $result = curl_exec($ch);
 $result2= file_get_contents($url);
-if(strcmp($result, $result2)<0){
+if(strcmp($result, $result2)<"0"){
 $result = $result2;
 }
 
