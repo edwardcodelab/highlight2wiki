@@ -108,8 +108,6 @@ $ch = curl_init();
                 'Host: website.com',
                 'TE: Trailers',
                 'Upgrade-Insecure-Requests: 1']	    
-	    
-  $curl=curl_init();
   curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);	    
   curl_setopt($ch, CURLOPT_USERAGENT, $agent);// Return Page contents.
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
