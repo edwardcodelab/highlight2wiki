@@ -109,8 +109,6 @@ $ch = curl_init();
                 'TE: Trailers',
                 'Upgrade-Insecure-Requests: 1']	    
 	    
-	    
-   $cookie ="";
   $curl=curl_init();
   curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);	    
   curl_setopt($ch, CURLOPT_USERAGENT, $agent);// Return Page contents.
@@ -118,8 +116,6 @@ $ch = curl_init();
   curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
   curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
   curl_setopt($ch, CURLOPT_COOKIESESSION, true);
-  curl_setopt($ch, CURLOPT_COOKIEJAR, $cookie);
-  curl_setopt($ch, CURLOPT_COOKIEFILE, $cookie);
   curl_setopt($ch, CURLOPT_VERBOSE, true);
   curl_setopt($ch, CURLOPT_AUTOREFERER, true);
   curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
