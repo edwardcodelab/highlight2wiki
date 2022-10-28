@@ -101,14 +101,7 @@ $purl = parseurl($url);
 	
 // Initialize a CURL session.
 $ch = curl_init();
-   $agent = 'Mozilla/5.0 (Linux; Android 12; SM-G998U) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Mobile Safari/537.36';
-       $headers = ['Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-                'Cache-Control: max-age=0',
-                'Connection: keep-alive',
-                'Host: website.com',
-                'TE: Trailers',
-                'Upgrade-Insecure-Requests: 1']	          
-  curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);	    
+   $agent = 'Mozilla/5.0 (Linux; Android 12; SM-G998U) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Mobile Safari/537.36';	    
   curl_setopt($ch, CURLOPT_USERAGENT, $agent);// Return Page contents.
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
   curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
