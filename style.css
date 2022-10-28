@@ -9,6 +9,23 @@ mark2 {
   background-color: yellow;
   color: black;
 }
+markfr {
+   color:yellow;
+   background-color:yellow;
+}
+
+markfr:active {
+   color:black;
+   background-color:yellow;
+  
+}
+markfr:hover {
+   color:black;
+   background-color:yellow;
+  
+}  
+
+
 .unibutton{
   border: none;
   padding: 5px 5px;
