@@ -100,19 +100,16 @@ $purl = parseurl($url);
 
 	
 // Initialize a CURL session.
-$ch = curl_init();
-   $agent = 'Mozilla/5.0 (Linux; Android 12; SM-G998U) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Mobile Safari/537.36';	    
+  $ch = curl_init();
+   $agent = 'Mozilla/5.0 (Linux; Android 12; SM-G998U) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Mobile Safari/537.36';
+  //$curl=curl_init();
   curl_setopt($ch, CURLOPT_USERAGENT, $agent);// Return Page contents.
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
   curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-  curl_setopt($ch, CURLOPT_COOKIESESSION, true);
-  curl_setopt($ch, CURLOPT_VERBOSE, true);
-  curl_setopt($ch, CURLOPT_AUTOREFERER, true);
-  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-  curl_setopt($ch, CURLOPT_ENCODING, '');
-  //grab URL and pass it to the variable.
-   curl_setopt($ch, CURLOPT_URL, $url);
+//grab URL and pass it to the variable.
+curl_setopt($ch, CURLOPT_URL, $url);
+ 
+$result = curl_exec($ch);
  
 $result = curl_exec($ch);
 //$result2= file_get_contents($url);
