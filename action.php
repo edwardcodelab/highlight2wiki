@@ -130,8 +130,9 @@ foreach($dom->getElementsByTagName('*') as $node)
         $node->removeAttributeNode($attribute);
     }
 }
+echo '<meta charset="UTF-8"/>';
 $titles = $dom->saveHTML($dom->getElementsByTagName('title')->item(0));
-$html = $dom->saveHTML($dom->getElementsByTagname('html')->item(0));
+$html = $dom->saveHTML($dom->getElementsByTagname('body')->item(0));
 if($allow_css==0){
 
 $html = preg_replace('/\sstyle=("|\').*?("|\')/i', '', $html);}
