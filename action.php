@@ -284,4 +284,4 @@ function is_utf8($str) {
     }
     return true; // didn't find any invalid characters
 }
-
+ 
