@@ -78,6 +78,41 @@ for (var j = 0; j < lines.length; j++) {
 }
 
 
+function loadhighlightrevision(){
+var textArea = document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value; 
+ 
+var lines = textArea.split('\n\n');    // lines is an array of strings
+ 
+// Loop through all lines
+for (var j = 0; j < lines.length; j++) {
+    highlight2(lines[j]);
+    console.log(lines[j]);
+ //document.testform.selectedtext.value += lines[j];
+}
+}		
+}
+
+
+
+function highlight2(text) {
+     // hightlight for revision
+    //document.documentElement.innerHTML = document.documentElement.innerHTML.replace(new RegExp(text + '(?!([^<]+)?<)', 'gi'),'<mark2>$&</mark2>');;
+  var inputText = document.getElementById("wanttext");
+  var innerHTML = inputText.innerHTML;
+  var index = innerHTML.indexOf(text);
+  console.log(index);
+  if (index >= 0) { 
+     innerHTML = innerHTML.substring(0,index) + "<markfr>" + innerHTML.substring(index,index+text.length) + "</markfr>" + innerHTML.substring(index + text.length);
+     inputText.innerHTML = innerHTML;
+  }
+}
+
+
+
+
+
+
+
 function edittag(){
       var newtagselection = window.getSelection()
 	  var newtagcomponent = newtagselection.toString();
