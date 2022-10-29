@@ -12,6 +12,7 @@ javascript:Q=document.selection?document.selection.createRange().text:document.g
 
    
  */
+error_reporting(E_ERROR); 
 class action_plugin_highlight2wiki extends \dokuwiki\Extension\ActionPlugin
 {
 
@@ -139,11 +140,11 @@ if($result!=""){
 //preg_match('/lang=(["\'])?((?:.(?!\1|>))*.?)/',$result,$matchlang); 
 $allowed_attributes = array('charset','lang','src','href'); 
 
-$dom = new @DOMDocument();
+$dom = new DOMDocument();
 
 
 //$dom->loadHTML($result);    
-$dom->@loadHTML(mb_convert_encoding($result, 'HTML-ENTITIES', 'UTF-8'));    
+$dom->loadHTML(mb_convert_encoding($result, 'HTML-ENTITIES', 'UTF-8'));    
 
 
 
