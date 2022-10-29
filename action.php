@@ -193,7 +193,7 @@ echo "</div>";
 /*  dokuwiki editor iframe  */
 echo '<iframe src="'.$targeturl.'" id="edtop" width="100%" height="800 px"></iframe>';
  
-        echo'<div id="ednavbar" onfocus="loadH2WFunc()">
+        echo'<div id="ednavbar" onmouserover="loadH2WFunc()">
         <!--Button to invoke the 
          function to get the selected text-->
         <input type="button" value="Highlight" class="unibutton"   onpointerup="getSelectedText()">
