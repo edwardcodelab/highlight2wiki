@@ -12,7 +12,7 @@ javascript:Q=document.selection?document.selection.createRange().text:document.g
 
    
  */
-
+error_reporting(E_ERROR);
 class action_plugin_highlight2wiki extends \dokuwiki\Extension\ActionPlugin
 {
 
