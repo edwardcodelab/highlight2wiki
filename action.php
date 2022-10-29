@@ -37,7 +37,8 @@ class action_plugin_highlight2wiki extends \dokuwiki\Extension\ActionPlugin
                             'type'    => 'text/javascript',
                             'charset' => 'utf-8',
                             '_data'   => '',
-                            'src'     => DOKU_BASE.'lib/plugins/highlight2wiki/script.js');
+							'src'     => 'https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js');
+                            //'src'     => DOKU_BASE.'lib/plugins/highlight2wiki/script.js');
     }
     public function allowMyAction(Doku_Event $event, $param) {
         if($event->data != 'highlight2wiki') return; 
