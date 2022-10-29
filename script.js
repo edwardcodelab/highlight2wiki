@@ -41,11 +41,12 @@
     function markjs(){
 			let selectedText = window.getSelection();
             selectedTextString = selectedText.toString();
-            jQuery("#wanttext").mark(selectedText, {
+			var instance = new Mark(document.getElementById("wanttext"));
+            instance.mark(selectedText, {
+            "element": "mark2",
             "acrossElements": true,
             "separateWordSearch": false,
-            "diacritics": false});
-			 
+            "diacritics": false}); 
 			document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value = selectedTextString + selectedText + "\n\n";
    
 			//let selectedText = window.getSelection();
