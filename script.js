@@ -41,7 +41,7 @@
     function markjs(){
 			let selectedText = window.getSelection();
             selectedTextString = selectedText.toString();
-            jQuery(".wanttext").mark(selectedText, {
+            jQuery("#wanttext").mark(selectedText, {
             "acrossElements": true,
             "separateWordSearch": false,
             "diacritics": false});
