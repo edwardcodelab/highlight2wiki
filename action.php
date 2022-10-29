@@ -139,11 +139,11 @@ if($result!=""){
 //preg_match('/lang=(["\'])?((?:.(?!\1|>))*.?)/',$result,$matchlang); 
 $allowed_attributes = array('charset','lang','src','href'); 
 
-$dom = new DOMDocument();
+$dom = new @DOMDocument();
 
 
 //$dom->loadHTML($result);    
-$dom->loadHTML(mb_convert_encoding($result, 'HTML-ENTITIES', 'UTF-8'));    
+$dom->@loadHTML(mb_convert_encoding($result, 'HTML-ENTITIES', 'UTF-8'));    
 
 
 
