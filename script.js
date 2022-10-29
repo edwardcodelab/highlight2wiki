@@ -8,6 +8,7 @@
             selectedText = window.getSelection();
             console.log(selectedText);
             // window.getSelection
+			// To write the selected text into the textarea
             if (document.getElementsByTagName("title")[1] !=null){
 	    var papertitle = document.getElementsByTagName("title")[1].textContent;
 		}else{
@@ -19,7 +20,9 @@
           document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += "{{tag> }}\r\n\n"; //add tag syntax        
                 }
  
-            document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += selectedText + "\n\n";            
+                document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += selectedText + "\n\n";    
+
+			
             if (window.getSelection) {
                  selectedText = window.getSelection();
                  for(var i = 0; i < selectedText.rangeCount; i++) {
@@ -34,19 +37,8 @@
             else if (document.selection) {
                 selectedText = document.selection.createRange().text;
             } else return;
-            // To write the selected text into the textarea
-            if (document.getElementsByTagName("title")[1] !=null){
-	    var papertitle = document.getElementsByTagName("title")[1].textContent;
-		}else{
-	    var papertitle = url;
-		}
-           // document.testform.selectedtext.value += selectedText +"\n";
-           if (document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value == ""){
-           document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += "====== "+papertitle+" ====== \r\n [["+url+"|" + papertitle + "]][["+highlightactionurl+"&ur="+url+"|Hightlight]]--"+timestamp+"\r\n\n";
-          document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += "{{tag> }}\r\n\n"; //add tag syntax        
-                }
+
  
-            document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += selectedText + "\n\n";
         }
  
     function highlight2(){
