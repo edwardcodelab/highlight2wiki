@@ -147,7 +147,5 @@ loadH2WFunc(){
            document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += "====== "+papertitle+" ====== \r\n [["+url+"|" + papertitle + "]][["+highlightactionurl+"&ur="+url+"|Hightlight]]--"+timestamp+"\r\n\n";
           document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += "{{tag> }}\r\n\n"; //add tag syntax        		  
                 }
-        }	
-	
-	
+
 }
