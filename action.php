@@ -78,8 +78,9 @@ class action_plugin_highlight2wiki extends \dokuwiki\Extension\ActionPlugin
         echo '<input id="linktogo">';
          echo '<input type="button" onclick="location.href=\'?do=highlight2wiki&ur=\'+encodeURIComponent(getElementById(\'linktogo\').value);" value="Highlight2wiki" />';	    
 	 }
-        echo '<p>'.$urlkey.'</p>';
-	echo '<p>'.$yournamespace.'</p>';
+        echo '<p>'.$url.'</p>';
+		echo '<p>'.$urlkey.'</p>';
+	    echo '<p>'.$yournamespace.'</p>';
         echo '<script>
             var titlestring ="'.$titlestring.'";
             var url = "'.$url.'"
@@ -108,7 +109,7 @@ $purl = parseurl($url);
 
 
 
-if (function_exists('curl_init()')) 
+if (function_exists('curl_init()')) //check if curlfunction existed
 {
      $ch = curl_init();
      $agent = 'Mozilla/5.0 (Linux; Android 12; SM-G998U) AppleWebKit/537.36 (KHTML, like Gecko)   Chrome/106.0.0.0 Mobile Safari/537.36';
