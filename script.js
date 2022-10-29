@@ -5,7 +5,8 @@
             // Function to get the Selected Text 
         function getSelectedText() {
             var selectedText = '';
-            selectedText = window.getSelection();
+            selectedTextSel = window.getSelection();
+			selectedText=selectedTextSel.toString();
             console.log(selectedText);
             // window.getSelection
 			// To write the selected text into the textarea
@@ -19,10 +20,7 @@
             document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += "====== "+papertitle+" ====== \r\n [["+url+"|" + papertitle + "]][["+highlightactionurl+"&ur="+url+"|Hightlight]]--"+timestamp+"\r\n\n";
             document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += "{{tag> }}\r\n\n"; //add tag syntax        
                 }
- 
-
-
-			
+ 			
             if (window.getSelection) {
                  selectedText = window.getSelection();
                  for(var i = 0; i < selectedText.rangeCount; i++) {
@@ -42,8 +40,8 @@
         }
  
     function highlight2(){
-            let selectedText = window.getSelection();
-            selectedText = selectedText.toString();
+            let selectedTextSel = window.getSelection();
+			selectedText=selectedTextSel.toString();
             document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += selectedText + "\n\n";    
 	        console.log(selectedText);
             highlight(selectedText);
