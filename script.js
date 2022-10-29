@@ -82,16 +82,8 @@ var lines = textArea.split('\n\n');    // lines is an array of strings
  
 // Loop through all lines
 for (var j = 0; j < lines.length; j++) {
-  //  highlight(lines[j]);
-let selectedText = window.getSelection();
-            selectedTextString = selectedText.toString();
-			var instance = new Mark(document.getElementById("wanttext"));
-            instance.mark(lines[j], {
-            "element": "span",
-            "className": "mark2",
-            "acrossElements": true,
-            "separateWordSearch": false,
-            "diacritics": false}); 
+    highlight(lines[j]);
+
 
     console.log(lines[j]);
  //document.testform.selectedtext.value += lines[j];
