@@ -55,7 +55,7 @@ class action_plugin_highlight2wiki extends \dokuwiki\Extension\ActionPlugin
  		  header("Location: ?do=login");
  		  die('<a href="?do=login">LOGIN</a>');
  		}    
-	    
+	   
 	    
 	    
         $timestamp = date("Y:m:d:H:i:s");
@@ -76,7 +76,7 @@ class action_plugin_highlight2wiki extends \dokuwiki\Extension\ActionPlugin
 	 if(empty($url)){   
 	echo "<p>put your link here:</p>"; 
         echo '<input id="linktogo">';
-         echo '<input type="button" onclick="location.href=\'?do=highlight2wiki&ur=\'+getElementById(\'linktogo\').value;" value="Highlight2wiki" />';	    
+         echo '<input type="button" onclick="location.href=\'?do=highlight2wiki&ur=\'+encodeURIComponent(getElementById(\'linktogo\').value);" value="Highlight2wiki" />';	    
 	 }
         echo '<p>'.$urlkey.'</p>';
 	echo '<p>'.$yournamespace.'</p>';
