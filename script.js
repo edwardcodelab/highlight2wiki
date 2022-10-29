@@ -110,7 +110,7 @@ function highlight2(text) {
 
 
 function edittag(){
-      var newtagselection = window.getSelection()
+      var newtagselection = window.getSelection();
 	  var newtagcomponent = newtagselection.toString();
             newtagcomponent =newtagcomponent.trim();
       if(newtagcomponent.match(/\s/)){
