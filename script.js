@@ -138,7 +138,7 @@ function edittag(){
 
  
  
- function (){
+ function loadH2WFunc(){
             if (document.getElementsByTagName("title")[1] !=null){
 	    var papertitle = document.getElementsByTagName("title")[1].textContent;
 		}else{
