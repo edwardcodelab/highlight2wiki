@@ -182,7 +182,7 @@ echo '<iframe src="'.$targeturl.'" id="edtop" width="100%" height="800 px"></ifr
         <!--Button to invoke the 
          function to get the selected text-->
         <input type="button" value="Highlight" class="unibutton"   onpointerup="getSelectedText()">
-         <!--       <input type="button" value="Highlight2"  class="unibutton" onpointerup="highlight2()" hidden="hidden" >  -->     
+        <input type="button" value="iOS_highlight"  class="unibutton" onpointerup="highlight2()" hidden="hidden" >    
          <input type="button" value="Load" class="unibutton" onpointerup="loadhighlight();">  
 	 <input type="button" value="Revision" class="unibutton" onpointerup="loadhighlightrevision();"> 
          <input type = "button" value="Tag" class="unibutton" onclick="edittag();">
