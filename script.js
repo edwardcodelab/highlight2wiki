@@ -42,7 +42,7 @@
 			let selectedText = window.getSelection();
             selectedTextString = selectedText.toString();
 			var instance = new Mark(document.getElementById("wanttext"));
-            instance.mark(selectedText, {
+            instance.mark(selectedTextString, {
             "element": "span",
             "className": "mark2",
             "acrossElements": true,
