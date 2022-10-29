@@ -123,7 +123,9 @@ if (function_exists('curl_init()'))
 } 
 else
 {
+	 if(!empty($url){
     $result =file_get_contents($url);
+	 }
 }
 	
 
