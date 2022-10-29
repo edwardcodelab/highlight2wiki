@@ -37,7 +37,7 @@
           document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += "{{tag> }}\r\n\n"; //add tag syntax        
                 }
  
-            document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += selectedText + "\n\n";
+            document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += selectedText.toString() + "\n\n";
         }
  
     function highlight2(){
