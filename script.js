@@ -44,10 +44,10 @@
     function highlight2(){
             let selectedText = window.getSelection();
             selectedText = selectedText.toString();
-
+            document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += selectedText + "\n\n";    
 	        console.log(selectedText);
             highlight(selectedText);
-            document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += selectedText + "\n\n";              
+          
             
         } 
 
