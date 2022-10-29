@@ -191,16 +191,7 @@ echo $html;
 echo "</div>";  
 
 // add onload function
-echo' <script>function loadH2WFunc(){ 
-            if (document.getElementsByTagName("title")[1] !=null){
-	    var papertitle = document.getElementsByTagName("title")[1].textContent;
-		}else{
-	    var papertitle = url;
-		}
-           if (document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value == ""){
-           document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += "====== "+papertitle+" ====== \r\n [["+url+"|" + papertitle + "]][["+highlightactionurl+"&ur="+url+"|Hightlight]]--"+timestamp+"\r\n\n";
-          document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += "{{tag> }}\r\n\n"; //add tag syntax        		  
-}}	</script>';	
+echo' <script>	</script>';	
 
 
 
