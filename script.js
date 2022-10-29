@@ -41,7 +41,7 @@
     function highlight2(){
 			let selectedText = window.getSelection();
             selectedTextString = selectedText.toString();
-            $(".wanttext").mark(selectedText, {
+            jQuery(".wanttext").mark(selectedText, {
             "acrossElements": true,
             "separateWordSearch": false,
             "diacritics": false});
