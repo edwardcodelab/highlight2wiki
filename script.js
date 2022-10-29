@@ -37,7 +37,7 @@
           document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += "{{tag> }}\r\n\n"; //add tag syntax        
                 }
            let selectedTextString = selectedText.toString()
-		   console.log(selectedTextString);
+		   alert(selectedTextString);
             document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value = selectedTextString + "\n\n";
         }
  
