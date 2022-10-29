@@ -41,7 +41,7 @@
     function markjs(){
 			let selectedText = window.getSelection();
             selectedTextString = selectedText.toString();
-            selectedTextString=selectedTextString.replace(/(\r\n|\n|\r)/gm, "");
+            
 			var instance = new Mark(document.getElementById("wanttext"));
             instance.mark(selectedTextString, {
             "element": "span",
@@ -49,6 +49,7 @@
             "acrossElements": true,
             "separateWordSearch": false,
             "diacritics": false}); 
+			selectedTextString=selectedTextString.replace(/(\r\n|\n|\r)/gm, "");
 			document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += selectedTextString + selectedText + "\n\n";
    
 			//let selectedText = window.getSelection();
