@@ -88,6 +88,8 @@ markfr:hover {
 #wanttext {
 /* css adapted from https://github.com/lucagez/medium.css/blob/master/medium.css */
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700|Lora|Playfair+Display:700i,900');
+user-select: text;
+-webkit-user-select: text;
 
 h1, h2, p, i, a { text-rendering:optimizeLegibility; }
 
