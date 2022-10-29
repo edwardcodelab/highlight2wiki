@@ -190,10 +190,25 @@ echo $html;
 
 echo "</div>";  
 
+// add onload function
+echo' <script>function loadH2WFunc(){ 
+            if (document.getElementsByTagName("title")[1] !=null){
+	    var papertitle = document.getElementsByTagName("title")[1].textContent;
+		}else{
+	    var papertitle = url;
+		}
+           if (document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value == ""){
+           document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += "====== "+papertitle+" ====== \r\n [["+url+"|" + papertitle + "]][["+highlightactionurl+"&ur="+url+"|Hightlight]]--"+timestamp+"\r\n\n";
+          document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += "{{tag> }}\r\n\n"; //add tag syntax        		  
+}}	</script>';	
+
+
+
+
 /*  dokuwiki editor iframe  */
 echo '<iframe src="'.$targeturl.'" id="edtop" width="100%" height="800 px"></iframe>';
  
-        echo'<div id="ednavbar" onmouseover="loadH2WFunc()">
+        echo'<div id="ednavbar" onload="loadH2WFunc()">
         <!--Button to invoke the 
          function to get the selected text-->
         <input type="button" value="Highlight" class="unibutton"   onpointerup="getSelectedText()">
@@ -216,17 +231,7 @@ echo '
         </form>';
 		
 		
-echo' <script>function loadH2WFunc(){
-            if (document.getElementsByTagName("title")[1] !=null){
-	    var papertitle = document.getElementsByTagName("title")[1].textContent;
-		}else{
-	    var papertitle = url;
-		}
-           // document.testform.selectedtext.value += selectedText +"\n";
-           if (document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value == ""){
-           document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += "====== "+papertitle+" ====== \r\n [["+url+"|" + papertitle + "]][["+highlightactionurl+"&ur="+url+"|Hightlight]]--"+timestamp+"\r\n\n";
-          document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += "{{tag> }}\r\n\n"; //add tag syntax        		  
-}}	</script>';		
+	
 		
       //  <form name="testform" hidden="hidden" >
            // <textarea name="selectedtext" 
