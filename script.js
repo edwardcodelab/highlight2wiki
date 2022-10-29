@@ -38,7 +38,7 @@
             document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value = selectedTextString + selectedText + "\n\n";
         }
  
-    function highlight2(){
+    function markjs(){
 			let selectedText = window.getSelection();
             selectedTextString = selectedText.toString();
             jQuery(".wanttext").mark(selectedText, {
