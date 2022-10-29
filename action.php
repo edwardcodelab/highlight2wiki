@@ -145,7 +145,7 @@ $dom = new DOMDocument();
 
 
 //$dom->loadHTML($result);    
-$dom->loadHTML(mb_convert_encoding($result, 'HTML-ENTITIES', 'UTF-8'),LIBXML_NOWARNING);    
+@$dom->loadHTML(mb_convert_encoding($result, 'HTML-ENTITIES', 'UTF-8'),LIBXML_NOWARNING);    
 
 
 
