@@ -39,11 +39,20 @@
         }
  
     function highlight2(){
-            let selectedText = window.getSelection();
-            selectedText = selectedText.toString();
+			let selectedText = window.getSelection();
+            selectedTextString = selectedText.toString();
+            $(".wanttext").mark(selectedText, {
+            "acrossElements": true,
+            "separateWordSearch": false,
+            "diacritics": false});
+			 
+			document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value = selectedTextString + selectedText + "\n\n";
+   
+			//let selectedText = window.getSelection();
+            //selectedText = selectedText.toString();
 
-	        console.log(selectedText);
-            highlight(selectedText);
+	        //console.log(selectedText);
+            //highlight(selectedText);
             
             
         } 
