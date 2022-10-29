@@ -213,8 +213,21 @@ echo '
           <input type="button" value="Go to Top " onclick="document.getElementById(\'wanttext\').scrollIntoView();" > 
           <p> </p>
  
-        </form>
-';
+        </form>';
+		
+		
+echo' function loadH2WFunc(){
+            if (document.getElementsByTagName("title")[1] !=null){
+	    var papertitle = document.getElementsByTagName("title")[1].textContent;
+		}else{
+	    var papertitle = url;
+		}
+           // document.testform.selectedtext.value += selectedText +"\n";
+           if (document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value == ""){
+           document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += "====== "+papertitle+" ====== \r\n [["+url+"|" + papertitle + "]][["+highlightactionurl+"&ur="+url+"|Hightlight]]--"+timestamp+"\r\n\n";
+          document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += "{{tag> }}\r\n\n"; //add tag syntax        		  
+                }	';		
+		
       //  <form name="testform" hidden="hidden" >
            // <textarea name="selectedtext" 
                       //rows="3"
