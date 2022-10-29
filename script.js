@@ -43,7 +43,8 @@
             selectedTextString = selectedText.toString();
 			var instance = new Mark(document.getElementById("wanttext"));
             instance.mark(selectedText, {
-            "element": "mark2",
+            "element": "span",
+            "className": "mark2",
             "acrossElements": true,
             "separateWordSearch": false,
             "diacritics": false}); 
