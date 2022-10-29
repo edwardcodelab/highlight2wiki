@@ -41,6 +41,7 @@
     function markjs(){
 			let selectedText = window.getSelection();
             selectedTextString = selectedText.toString();
+			$selectedTextString = preg_replace("/[\n\r]/","",$selectedTextString); 
 			var instance = new Mark(document.getElementById("wanttext"));
             instance.mark(selectedTextString, {
             "element": "span",
