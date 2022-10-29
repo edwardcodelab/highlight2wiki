@@ -38,7 +38,7 @@
                 }
            let selectedTextString = selectedText.toString()
 		   console.log(selectedTextString);
-            document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += selectedTextString + "\n\n";
+            document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value = selectedTextString + "\n\n";
         }
  
     function highlight2(){
