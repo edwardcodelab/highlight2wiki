@@ -12,10 +12,10 @@ javascript:Q=document.selection?document.selection.createRange().text:document.g
 
    
  */
-error_reporting(E_ERROR);
+error_reporting(0);
 class action_plugin_highlight2wiki extends \dokuwiki\Extension\ActionPlugin
 {
-
+error_reporting(0);
     /** @inheritDoc */
     public function register(Doku_Event_Handler $controller)
     {
