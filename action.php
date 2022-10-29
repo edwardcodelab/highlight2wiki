@@ -12,9 +12,9 @@ javascript:Q=document.selection?document.selection.createRange().text:document.g
 
    
  */
+
 class action_plugin_highlight2wiki extends \dokuwiki\Extension\ActionPlugin
 {
-
     /** @inheritDoc */
     public function register(Doku_Event_Handler $controller)
     {
@@ -105,20 +105,30 @@ class action_plugin_highlight2wiki extends \dokuwiki\Extension\ActionPlugin
  
 $purl = parseurl($url);
 
+
+
+
+if (function_exists('curl_init()')) 
+{
+     $ch = curl_init();
+     $agent = 'Mozilla/5.0 (Linux; Android 12; SM-G998U) AppleWebKit/537.36 (KHTML, like Gecko)   Chrome/106.0.0.0 Mobile Safari/537.36';
+     curl_setopt($ch, CURLOPT_USERAGENT, $agent);// Return Page contents.
+     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+     curl_setopt($ch, CURLOPT_URL, $url);
+     $result = curl_exec($ch);
+	 //grab URL and pass it to the variable.
+	 // Initialize a CURL session.
+	 //$result =file_get_contents($url);
+} 
+else
+{
+    $result =file_get_contents($url);
+}
 	
-// Initialize a CURL session.
-  $ch = curl_init();
-   $agent = 'Mozilla/5.0 (Linux; Android 12; SM-G998U) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Mobile Safari/537.36';
-  //$curl=curl_init();
-  curl_setopt($ch, CURLOPT_USERAGENT, $agent);// Return Page contents.
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-//grab URL and pass it to the variable.
-curl_setopt($ch, CURLOPT_URL, $url);
+
+
  
-$result = curl_exec($ch);
- 
-$result = curl_exec($ch);
 //$result2= file_get_contents($url);
 //if(strcmp($result, $result2)<"0"){
 //$result = $result2;
@@ -182,7 +192,7 @@ echo '<iframe src="'.$targeturl.'" id="edtop" width="100%" height="800 px"></ifr
         <!--Button to invoke the 
          function to get the selected text-->
         <input type="button" value="Highlight" class="unibutton"   onpointerup="getSelectedText()">
-         <!--       <input type="button" value="Highlight2"  class="unibutton" onpointerup="highlight2()" hidden="hidden" >  -->     
+        <!--<input type="button" value="iOS_highlight"  class="unibutton" onpointerup="highlight2()" hidden="hidden" >  -->
          <input type="button" value="Load" class="unibutton" onpointerup="loadhighlight();">  
 	 <input type="button" value="Revision" class="unibutton" onpointerup="loadhighlightrevision();"> 
          <input type = "button" value="Tag" class="unibutton" onclick="edittag();">
