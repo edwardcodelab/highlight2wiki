@@ -110,7 +110,7 @@ $purl = parseurl($url);
 
 
 
-if (function_exists('curl_init()')) //check if curlfunction existed
+if (function_exists('curl_init()')) //check if curl function existed
 {
      $ch = curl_init();
      $agent = 'Mozilla/5.0 (Linux; Android 12; SM-G998U) AppleWebKit/537.36 (KHTML, like Gecko)   Chrome/106.0.0.0 Mobile Safari/537.36';
@@ -163,12 +163,12 @@ foreach($dom->getElementsByTagName('*') as $node)
     }
 }
 
-if($allow_javascript==0){  //javascript_conf
+if($allow_javascript===0){  //javascript_conf
 /*$html = preg_replace('/<\s*script.+?<\s*\/\s*script.*?>/si', ' ', $html );  */ 
 foreach($dom->getElementsByTagName('script') as $node){$node->nodeValue="";}
 }
 
-if($allow_css==0){ //css conf
+if($allow_css===0){ //css conf
 /*$html = preg_replace('/<\s*style.+?<\s*\/\s*script.*?>/si', ' ', $html );  */
 foreach($dom->getElementsByTagName('style') as $node){$node->nodeValue="";}
 }
