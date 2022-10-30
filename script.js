@@ -67,7 +67,7 @@ for (var j = 0; j < lines.length; j++) {
     console.log(lines[j]);
 
     instance2.mark(lines[j], {
-	"element": "mart2",
+	"element": "mark2",
 	"acrossElements": true,
 	"separateWordSearch": false,
 	"diacritics": false}); 
