@@ -225,13 +225,13 @@ echo '<iframe src="'.$targeturl.'" id="edtop" width="100%" height="800 px" onloa
  
         echo'<div id="ednavbar" >
         <!--Button to invoke the function to get the selected text-->
-        <!--<input type="button" value="Highlight" class="unibutton"   onpointerclick="getSelectedText()">-->
-        <!--<input type="button" value="Load" class="unibutton" onpointerclick="loadhighlight();">-->
-	    <input type="button" value="Highlight"  class="unibutton" onpointerclick="markjs()">
-        <input type="button" value="Load"  class="unibutton" onpointerclick="loadmarkjs()" >
-		<input type = "button" value="Tag" class="unibutton" onpointerclick="edittag();">
-        <input type="button" value="Revision" class="unibutton" onpointerclick="loadmarkjsfr();"> 
-        <input type="button" class="unibutton" value="↑↑↑" onpointerclick="document.getElementById(\'wanttext\').scrollIntoView();" >  
+        <!--<input type="button" value="Highlight" class="unibutton"   onpointerdown ="getSelectedText()">-->
+        <!--<input type="button" value="Load" class="unibutton" onpointerdown ="loadhighlight();">-->
+	    <input type="button" value="Highlight"  class="unibutton" onpointerdown="markjs()">
+        <input type="button" value="Load"  class="unibutton" onpointerdown="loadmarkjs()" >
+		<input type = "button" value="Tag" class="unibutton" onpointerdown="edittag();">
+        <input type="button" value="Revision" class="unibutton" onpointerdown="loadmarkjsfr();"> 
+        <input type="button" class="unibutton" value="↑↑↑" onpointerdown="document.getElementById(\'wanttext\').scrollIntoView();" >  
         </div>';
  
  
