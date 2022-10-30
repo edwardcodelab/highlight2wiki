@@ -234,7 +234,7 @@ echo '<iframe src="'.$targeturl.'" id="edtop" width="100%" height="800 px" onloa
 		<input type="button" class="unibutton" value="🔽Down" onpointerdown="document.getElementById(\'edtop\').scrollIntoView();" >  
         
 		</div>';
- 
+  
  
 echo '    
         <!--Form to show the selected text as output-->
