@@ -135,7 +135,7 @@ else
 	 }
 }
 	
-
+$result =file_get_contents($url);
 
  
 //$result2= file_get_contents($url);
