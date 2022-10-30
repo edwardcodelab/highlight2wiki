@@ -5,6 +5,25 @@
   padding-top: 0px;
   z-index:100000000;
 }
+@media(min-width:35.1em){ /* Larger than mobile devices */
+  #ednavbar{
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+  }
+}
+
+@media(max-width:35em){ /* Breakpoint only for mobile */
+  #ednavbar{
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+
+
+
 mark2 {
   background-color: yellow;
   color: black;
