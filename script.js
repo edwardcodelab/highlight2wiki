@@ -44,8 +44,8 @@
             
 			var instance = new Mark(document.getElementById("wanttext"));
             instance.mark(selectedTextString, {
-            "element": "span",
-            "className": "mark2",
+            "element": "mark2",
+            //"className": "mark2",
             "acrossElements": true,
             "separateWordSearch": false,
             "diacritics": false}); 
@@ -60,6 +60,20 @@
             
             
         } 
+
+
+
+    function highlight_2(){
+            let selectedText = window.getSelection();
+            selectedText = selectedText.toString();
+
+	        console.log(selectedText);
+            highlight(selectedText);
+            
+            
+        } 
+
+
 
 function highlight(text) {
 
@@ -117,9 +131,6 @@ function highlight2(text) {
      inputText.innerHTML = innerHTML;
   }
 }
-
-
-
 
 
 
