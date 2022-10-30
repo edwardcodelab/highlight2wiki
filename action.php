@@ -170,7 +170,7 @@ foreach($dom->getElementsByTagName('*') as $node)
 		    if(in_array($AName, $allowed_attributes)){
 			continue;	
 			}else{
-			$node->setAttribute($attribute->name,"");
+			$node->setAttribute($AName,"");
 			}
 		
 		}

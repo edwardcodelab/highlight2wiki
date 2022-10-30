@@ -207,6 +207,7 @@ function edittag(){
 	 
 	 
 function loadH2WFunc(){ 
+            jQuery('img').removeAttr('srcset');
             if (document.getElementsByTagName("title")[1] !=null){
 	    var papertitle = document.getElementsByTagName("title")[1].textContent;
 		}else{
