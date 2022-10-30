@@ -34,6 +34,7 @@
            document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += "====== "+papertitle+" ====== \r\n [["+url+"|" + papertitle + "]]  [["+highlightactionurl+"&ur="+url+"|Hightlight]]--"+timestamp+"\r\n\n";
           document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += "{{tag> }}\r\n\n"; //add tag syntax        		  
                 }
+		   
            let selectedTextString = document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value;
             document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += selectedTextString + selectedText + "\n\n";
         }
@@ -42,22 +43,30 @@
 			let selectedText = window.getSelection();
             selectedTextString = selectedText.toString();
 			var instance = new Mark(document.getElementById("wanttext"));
-            instance.mark(selectedTextString, {
+            
+			var lines = selectedTextString.split('\n\n');    // lines is an array of strings
+			for (var j = 0; j < lines.length; j++) {
+			instance.mark(lines[j], {
             "element": "span",
             "className": "mark2",
             "acrossElements": true,
             "separateWordSearch": false,
             "diacritics": false}); 
-			
-			//selectedTextStringNN=selectedTextString.replace(/(\r\n|\n|\r)/gm, "");
-			document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += selectedTextString + selectedText + "\n\n";
+			document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += lines[j] + selectedText + "\n\n";
    
 			//let selectedText = window.getSelection();
             //selectedText = selectedText.toString();
 
 	        //console.log(selectedText);
             //highlight(selectedText);
-            
+            }
+   
+			
+			
+			
+			
+			
+			
             
         } 
 
@@ -77,10 +86,6 @@ for (var j = 0; j < lines.length; j++) {
 	"acrossElements": true,
 	"separateWordSearch": false,
 	"diacritics": false}); 
-
-
-
-
 
 }	
 	
