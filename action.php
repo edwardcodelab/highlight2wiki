@@ -152,7 +152,7 @@ $dom = new DOMDocument();
 
 
 //$dom->loadHTML($result);    
-@$dom->loadHTML(mb_convert_encoding($result, 'HTML-ENTITIES', 'UTF-8'),LIBXML_NOWARNING);    
+$dom->loadHTML(mb_convert_encoding($result, 'HTML-ENTITIES', 'UTF-8'));    
 
 
 
@@ -185,7 +185,7 @@ $titles = $dom->saveHTML($dom->getElementsByTagName('title')->item(0));
 $html = $dom->saveHTML($dom->getElementsByTagname('body')->item(0));
 
 
-//$html=preg_replace("/<body[^>]+\>/ix", "", $html); 
+$html=preg_replace("/<body[^>]+\>/ix", "", $html); 
 $html = str_replace("<body>", "", $html);
 $html = str_replace("</body>", "", $html);
 
