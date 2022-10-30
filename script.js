@@ -213,7 +213,7 @@ function loadH2WFunc(){
             }else{
 			var scrurl= url_host + jQuery(this).attr('src');	
 		    jQuery(this).attr('src', scrurl);
-		    //alert(jQuery(this).attr('src'));
+		    console.log(jQuery(this).attr('src'));
 	        }
 			});
             if (document.getElementsByTagName("title")[1] !=null){
