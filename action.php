@@ -71,7 +71,7 @@ class action_plugin_highlight2wiki extends \dokuwiki\Extension\ActionPlugin
         $allow_javascript = $this->getConf('allow_javascript');
 	    $targeturl= DOKU_BASE."doku.php?id=$yournamespace:$urlkey&do=edit"; 
         $highlightactionurl = DOKU_BASE."doku.php?do=highlight2wiki";
-	    $url_host = parse_url($url,PHP_URL_SCHEME) + parse_url($url, PHP_URL_HOST) ;
+	    $url_host = parse_url($url,PHP_URL_SCHEME).parse_url($url, PHP_URL_HOST) ;
 	 
 	  
 	 if(empty($url)){   
