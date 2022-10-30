@@ -230,9 +230,7 @@ echo '<iframe src="'.$targeturl.'" id="edtop" width="100%" height="800 px" onloa
 	    <input type="button" value="✎Mark"  class="unibutton" onpointerdown="markjs()">
         <input type="button" value="⌛Load"  class="unibutton" onpointerdown="loadmarkjs()" >
 		<input type = "button" value="〒Tag" class="unibutton" onpointerdown="edittag();">
-        <input type="button" value="✍Revise" class="unibutton" onpointerdown="loadmarkjsfr();"> 
-        <input type="button" value="🛒Submit" class="unibutton" onpointerdown="jQuery(\'#edbtn__save\').click();"> 
-		
+        <input type="button" value="✍Revise" class="unibutton" onpointerdown="loadmarkjsfr();"> 	
 		<input type="button" class="unibutton" value="🔽Down" onpointerdown="document.getElementById(\'edtop\').scrollIntoView();" >  
         
 		</div>';
