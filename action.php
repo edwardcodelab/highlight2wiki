@@ -79,6 +79,7 @@ class action_plugin_highlight2wiki extends \dokuwiki\Extension\ActionPlugin
         echo '<input id="linktogo">';
          echo '<input type="button" onclick="location.href=\'?do=highlight2wiki&ur=\'+encodeURIComponent(getElementById(\'linktogo\').value);" value="Highlight2wiki" />';	    
 	 }
+	    echo'<input type="button" value="DarkMode"  class="unibutton" onpointerdown="document.getElementById(\'wanttext\').classList.toggle("dark-mode");" >';
         echo '<p>'.$url.'</p>';
 		echo '<p>'.$urlkey.'</p>';
 	    echo '<p>'.$yournamespace.'</p>';
@@ -167,7 +168,6 @@ foreach($dom->getElementsByTagName('*') as $node)
     {
 		
 	    foreach($attribute->name as $AName){
-			echo'<p>'.$AName.'</p>';
 		    if(in_array($AName, $allowed_attributes)){
 			continue;	
 			}else{
@@ -231,7 +231,7 @@ echo '<iframe src="'.$targeturl.'" id="edtop" width="100%" height="800 px" onloa
         <input type="button" value="Load"  class="unibutton" onpointerdown="loadmarkjs()" >
 		<input type = "button" value="Tag" class="unibutton" onpointerdown="edittag();">
         <input type="button" value="Revision" class="unibutton" onpointerdown="loadmarkjsfr();"> 
-        <input type="button" class="unibutton" value="↑↑↑" onpointerdown="document.getElementById(\'wanttext\').scrollIntoView();" >  
+        <input type="button" class="unibutton" value="↑↑↑" onpointerdown="document.getElementById(\'edtop\').scrollIntoView();" >  
         </div>';
  
  

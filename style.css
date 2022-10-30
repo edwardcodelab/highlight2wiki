@@ -41,6 +41,11 @@ markfr:hover {
   
 }  
 
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
 .mark2{
   background-color: yellow;
   color: black;
