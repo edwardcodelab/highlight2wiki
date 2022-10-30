@@ -211,9 +211,9 @@ function loadH2WFunc(){
 			jQuery('#wanttext img').each(function() {
             if (jQuery(this).attr('src').includes('http')){
             }else{
-			var scrurl= url_host + jQuery('#wanttext img').attr('src');	
-		    jQuery('#wanttext img').attr('src', scrurl);
-		    alert(jQuery(this).attr('src'));
+			//var scrurl= url_host + jQuery('#wanttext img').attr('src');	
+		    //jQuery('#wanttext img').attr('src', scrurl);
+		    //alert(jQuery(this).attr('src'));
 	        }
 			});
             if (document.getElementsByTagName("title")[1] !=null){
