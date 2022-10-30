@@ -122,6 +122,11 @@ if (function_exists('curl_init()')) //check if curl function existed
 	 //grab URL and pass it to the variable.
 	 // Initialize a CURL session.
 	 //$result =file_get_contents($url);
+	 $result2 =file_get_contents($url);
+	
+	 if(strlen($result2)>strlen($result)){
+      $result = $result2;
+	 }
 } 
 else
 {
@@ -205,7 +210,7 @@ echo '<iframe src="'.$targeturl.'" id="edtop" width="100%" height="800 px" onloa
         <input type="button" value="Highlight" class="unibutton"   onpointerup="getSelectedText()">
         <input type="button" value="Load" class="unibutton" onpointerup="loadhighlight();">  
 	    <input type="button" value="MarkJs"  class="unibutton" onpointerup="markjs()">
-        <input type="button" value="LoadMarkJs"  class="unibutton" onpointerup="loadmarkjs()" >
+        <input type="button" value="LoadMJs"  class="unibutton" onpointerup="loadmarkjs()" >
 		<input type = "button" value="Tag" class="unibutton" onclick="edittag();">
         <input type="button" value="Revision" class="unibutton" onpointerup="loadhighlightrevision();"> 
         <!-- <input type="text" id="tagarea"  class="unienter" width="48" hidden="hidden" >-->
