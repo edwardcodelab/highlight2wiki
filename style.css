@@ -14,8 +14,9 @@
 
 @media(max-width:35em){ /* Breakpoint only for mobile */
   #ednavbar{
+	right:0;
     bottom: 0;
-    width: 100%;
+    width: 40px;
   }
 }
 
