@@ -67,7 +67,27 @@ for (var j = 0; j < lines.length; j++) {
     console.log(lines[j]);
 
     instance2.mark(lines[j], {
-	"element": "span",
+	"element": "mart2",
+	"acrossElements": true,
+	"separateWordSearch": false,
+	"diacritics": false}); 
+
+}	
+	
+}
+
+function loadmarkjsfr(){
+var textArea = document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value; 
+ 
+var lines = textArea.split('\n\n');    // lines is an array of strings
+var instance2 = new Mark(document.getElementById("wanttext")); 
+// Loop through all lines
+for (var j = 0; j < lines.length; j++) {
+  //  highlight(lines[j]);
+    console.log(lines[j]);
+
+    instance2.mark(lines[j], {
+	"element": "markfr",
 	"className": "mark2",
 	"acrossElements": true,
 	"separateWordSearch": false,
