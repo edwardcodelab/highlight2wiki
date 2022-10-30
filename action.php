@@ -118,14 +118,15 @@ if (function_exists('curl_init()')) //check if curl function existed
      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
      curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
      curl_setopt($ch, CURLOPT_URL, $url);
-     $result = curl_exec($ch);
+     $result1 = curl_exec($ch);
 	 //grab URL and pass it to the variable.
 	 // Initialize a CURL session.
 	 //$result =file_get_contents($url);
 	 $result2 =file_get_contents($url);
-	 echo $result2;
-	 if(strlen($result2)>strlen($result)){
-      $result = $result2;
+	 if(strlen($result2)>strlen($result)){ //check length of each result
+     $result = $result2;
+	 }else{
+	 $result = $result1;
 	 }
 } 
 else
@@ -184,7 +185,7 @@ $titles = $dom->saveHTML($dom->getElementsByTagName('title')->item(0));
 $html = $dom->saveHTML($dom->getElementsByTagname('body')->item(0));
 
 
-$html=preg_replace("/<body[^>]+\>/ix", "", $html); 
+//$html=preg_replace("/<body[^>]+\>/ix", "", $html); 
 $html = str_replace("<body>", "", $html);
 $html = str_replace("</body>", "", $html);
 
