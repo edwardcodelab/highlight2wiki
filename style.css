@@ -1,13 +1,11 @@
 #ednavbar {
   position: fixed;
-  bottom: 100px;
-  width: 100%;
-  padding-top: 0px;
+
   z-index:100000000;
 }
 @media(min-width:50.1em){ /* Larger than mobile devices */
   #ednavbar{
-    bottom: 0;
+   bottom: 100px;
     width: 100%;
   }
 }
@@ -15,8 +13,8 @@
 @media(max-width:50em){ /* Breakpoint only for mobile */
   #ednavbar{
 	right:0;
-    top: 0;
-    width: 40px;
+    top: 100;
+    width: 100%;
   }
 }
 
