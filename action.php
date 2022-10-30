@@ -167,6 +167,7 @@ foreach($dom->getElementsByTagName('*') as $node)
 		
 	    foreach($attribute->name as $AName){
 		    if(in_array($AName, $allowed_attributes)){
+			$node->setAttribute('srcset', '');
 			continue;	
 			}else{
 			$node->	removeAttribute($attribute);
