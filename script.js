@@ -211,7 +211,8 @@ function loadH2WFunc(){
 			jQuery('#wanttext img').each(function() {
             if (jQuery(this).attr('src').includes('http')){
             }else{
-		    jQuery(this).attr('src', url+jQuery(this).attr('src'));
+			var scrurl=url + jQuery('#wanttext img').attr('src');	
+		    jQuery('#wanttext img').attr('src', scrurl);
 		    alert(jQuery(this).attr('src'));
 	        }
 			});
