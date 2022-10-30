@@ -5,4 +5,4 @@ date   2022-10-29
 name   highlight2wiki plugin
 desc   to highlight any article on the web
 url    https://github.com/edwardcodelab/highlight2wiki
-ver    v1.6
+ver    v1.7
