@@ -209,10 +209,10 @@ function edittag(){
 function loadH2WFunc(){ 
             jQuery('img').removeAttr('srcset');
 			jQuery('#wanttext img').each(function() {
-            if (jQuery(this).attr('src').includes('http')){
+            if (jQuery(this).attr('src').includes('//')){
             }else{
-			//var scrurl= url_host + jQuery('#wanttext img').attr('src');	
-		    //jQuery('#wanttext img').attr('src', scrurl);
+			var scrurl= url_host + jQuery('#wanttext img').attr('src');	
+		    jQuery('#wanttext img').attr('src', scrurl);
 		    //alert(jQuery(this).attr('src'));
 	        }
 			});
