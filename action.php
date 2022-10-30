@@ -166,6 +166,7 @@ foreach($dom->getElementsByTagName('*') as $node)
     {
 		
 	    foreach($attribute->name as $AName){
+			echo'<p>'.$AName.'</p>';
 		    if(in_array($AName, $allowed_attributes)){
 			continue;	
 			}else{
