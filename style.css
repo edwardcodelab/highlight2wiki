@@ -12,9 +12,8 @@
 
 @media(max-width:40em){ /* Breakpoint only for mobile */
   #ednavbar{
-   bottom: 100px;
+   bottom: 50px;
     width: 100%;
-	max-height: calc(100vh - 60px); 
 	overflow-y: auto; 
   }
 }
