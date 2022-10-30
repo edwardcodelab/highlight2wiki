@@ -164,10 +164,19 @@ foreach($dom->getElementsByTagName('*') as $node)
 {
     foreach($node->attributes as $attribute)
     {
-        if (in_array($attribute->name, $allowed_attributes)) {
-            continue;
-        }
-        $node->removeAttributeNode($attribute);
+		
+	    foreach($attribute->name as $AName){
+		    if(in_array($AName, $allowed_attributes)){
+			continue;	
+			}else{
+			$node->	removeAttribute($attribute);
+			}
+		
+		}
+		
+        //if (in_array($attribute->name, $allowed_attributes)) {continue;}
+        //$node->removeAttributeNode($attribute);
+		//removeAttribute('href')
     }
 }
 
