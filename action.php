@@ -79,7 +79,7 @@ class action_plugin_highlight2wiki extends \dokuwiki\Extension\ActionPlugin
         echo '<input id="linktogo">';
          echo '<input type="button" onclick="location.href=\'?do=highlight2wiki&ur=\'+encodeURIComponent(getElementById(\'linktogo\').value);" value="Highlight2wiki" />';	    
 	 }
-	    echo'<input type="button" value="DarkMode"  class="unibutton" onpointerdown="document.getElementById(\'wanttext\').classList.toggle("dark-mode");" >';
+	   // echo'<input type="button" value="DarkMode"  class="unibutton" onpointerdown="document.getElementById(\'wanttext\').classList.toggle("dark-mode");" >';
         echo '<p>'.$url.'</p>';
 		echo '<p>'.$urlkey.'</p>';
 	    echo '<p>'.$yournamespace.'</p>';
