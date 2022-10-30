@@ -80,10 +80,10 @@ class action_plugin_highlight2wiki extends \dokuwiki\Extension\ActionPlugin
          echo '<input type="button" onclick="location.href=\'?do=highlight2wiki&ur=\'+encodeURIComponent(getElementById(\'linktogo\').value);" value="Highlight2wiki" />';	    
 	 }
 	    echo'<input type="button" value="DarkMode"  class="unibutton" onpointerdown="HLdarkmode()">';
-        echo '<p>'.$url.'</p>';
-		echo '<p>'.$urlkey.'</p>';
-	    echo '<p>'.$yournamespace.'</p>';
         echo '<script>
+		    console.log("'.$url.'");
+			console.log("'.$urlkey.'");
+			console.log("'.$yournamespace.'");
             var titlestring ="'.$titlestring.'";
             var url = "'.$url.'"
             var urlkey = "'.$urlkey.'";
@@ -185,13 +185,13 @@ foreach($dom->getElementsByTagName('*') as $node)
 if($allow_javascript==0){  //javascript_conf
 /*$html = preg_replace('/<\s*script.+?<\s*\/\s*script.*?>/si', ' ', $html );  */ 
 foreach($dom->getElementsByTagName('script') as $node){$node->nodeValue="";}
-echo'javascript cleared.';
+echo'js cleared\n';
 }
 
 if($allow_css==0){ //css conf
 /*$html = preg_replace('/<\s*style.+?<\s*\/\s*script.*?>/si', ' ', $html );  */
 foreach($dom->getElementsByTagName('style') as $node){$node->nodeValue="";}
-echo'css cleared.';
+echo'css cleared\n';
 }
 
 
