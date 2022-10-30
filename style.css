@@ -5,17 +5,17 @@
   padding-top: 0px;
   z-index:100000000;
 }
-@media(min-width:35.1em){ /* Larger than mobile devices */
+@media(min-width:50.1em){ /* Larger than mobile devices */
   #ednavbar{
     bottom: 0;
     width: 100%;
   }
 }
 
-@media(max-width:35em){ /* Breakpoint only for mobile */
+@media(max-width:50em){ /* Breakpoint only for mobile */
   #ednavbar{
 	right:0;
-    bottom: 0;
+    top: 0;
     width: 40px;
   }
 }
