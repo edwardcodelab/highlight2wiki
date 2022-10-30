@@ -1,6 +1,5 @@
 #ednavbar {
   position: fixed;
-
   z-index:100000000;
 }
 @media(min-width:50.1em){ /* Larger than mobile devices */
@@ -12,9 +11,9 @@
 
 @media(max-width:50em){ /* Breakpoint only for mobile */
   #ednavbar{
-	right:0;
-    top: 100;
-    width: 100%;
+	left:0;
+    top: 50%;
+    width: 10%;
   }
 }
 

@@ -53,20 +53,7 @@
             "diacritics": false}); 
 			document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += lines[j] + "\n\n";
    
-			//let selectedText = window.getSelection();"className": "mark2",
-            //selectedText = selectedText.toString();
-
-	        //console.log(selectedText);
-            //highlight(selectedText);
-            }
-   
-			
-			
-			
-			
-			
-			
-            
+            }         
         } 
 
 function loadmarkjs(){
