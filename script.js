@@ -88,7 +88,6 @@ for (var j = 0; j < lines.length; j++) {
 
     instance2.mark(lines[j], {
 	"element": "markfr",
-	"className": "mark2",
 	"acrossElements": true,
 	"separateWordSearch": false,
 	"diacritics": false}); 
