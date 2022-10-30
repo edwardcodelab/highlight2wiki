@@ -1,19 +1,21 @@
 #ednavbar {
-  position: relative;
+  position: fixed;
   z-index:100000000;
 }
-@media(min-width:50.1em){ /* Larger than mobile devices */
+@media(min-width:40.1em){ /* Larger than mobile devices */
   #ednavbar{
    bottom: 100px;
     width: 100%;
+
   }
 }
 
-@media(max-width:50em){ /* Breakpoint only for mobile */
+@media(max-width:40em){ /* Breakpoint only for mobile */
   #ednavbar{
-	left:0;
-    top: 50%;
-    width: 10%;
+   bottom: 100px;
+    width: 100%;
+	max-height: calc(100vh - 60px); 
+	overflow-y: auto; 
   }
 }
 
