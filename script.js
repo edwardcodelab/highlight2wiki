@@ -44,7 +44,7 @@
             
 			var instance = new Mark(document.getElementById("wanttext"));
             instance.mark(selectedText, {
-            "element": "mark2",
+            "element": "span",
             "className": "mark2",
             "acrossElements": true,
             "separateWordSearch": false,
@@ -73,7 +73,7 @@ for (var j = 0; j < lines.length; j++) {
     console.log(lines[j]);
 
     instance2.mark(lines[j], {
-	"element": "mark2",
+	"element": "span",
 	"className": "mark2",
 	"acrossElements": true,
 	"separateWordSearch": false,
