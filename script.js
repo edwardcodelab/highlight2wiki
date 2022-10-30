@@ -47,14 +47,13 @@
 			var lines = selectedTextString.split('\n');    // lines is an array of strings
 			for (var j = 0; j < lines.length; j++) {
 			instance.mark(lines[j], {
-            "element": "span",
-            "className": "mark2",
+            "element": "mark2",
             "acrossElements": true,
             "separateWordSearch": false,
             "diacritics": false}); 
 			document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += lines[j] + "\n\n";
    
-			//let selectedText = window.getSelection();
+			//let selectedText = window.getSelection();"className": "mark2",
             //selectedText = selectedText.toString();
 
 	        //console.log(selectedText);
