@@ -52,7 +52,7 @@
             "acrossElements": true,
             "separateWordSearch": false,
             "diacritics": false}); 
-			document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += lines[j] + selectedText + "\n\n";
+			document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += lines[j] + "\n\n";
    
 			//let selectedText = window.getSelection();
             //selectedText = selectedText.toString();
