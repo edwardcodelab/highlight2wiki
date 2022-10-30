@@ -92,7 +92,7 @@ class action_plugin_highlight2wiki extends \dokuwiki\Extension\ActionPlugin
             console.log(titlestring + url + urlkey);
             </script>';
         
-        echo'<div id="wanttext">';
+
 
 // From URL to get webpage contents.
  
@@ -135,6 +135,7 @@ else
 {
 	 if(!empty($url)){
     $result =file_get_contents($url);
+	echo '<p>file_get_contents</p>';
 	 }
 }
 	
@@ -191,7 +192,7 @@ $html=preg_replace("/<body[^>]+\>/ix", "", $html);
 $html = str_replace("<body>", "", $html);
 $html = str_replace("</body>", "", $html);
 
-
+echo'<div id="wanttext">';
 echo $titles;
 echo $html;
 }
