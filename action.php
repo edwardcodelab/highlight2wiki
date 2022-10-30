@@ -123,8 +123,8 @@ if (function_exists('curl_init')) //check if curl function existed
 	 // Initialize a CURL session.
 	 //$result =file_get_contents($url);
 	 $result2 =file_get_contents($url);
-	 echo '<p>'.strlen($result1).'</p>';
-	 echo '<p>'.strlen($result2).'</p>';
+	 //echo '<p>'.strlen($result1).'</p>';
+	 //echo '<p>'.strlen($result2).'</p>';
 	 if(strlen($result2)>strlen($result1)){ //check length of each result
      $result = $result2;
 	 }else{
