@@ -45,7 +45,7 @@
 			var instance = new Mark(document.getElementById("wanttext"));
             instance.mark(selectedTextString, {
             "element": "mark2",
-            //"className": "mark2",
+            "className": "mark2",
             "acrossElements": true,
             "separateWordSearch": false,
             "diacritics": false}); 
@@ -73,7 +73,7 @@ for (var j = 0; j < lines.length; j++) {
 
     instance2.mark(lines[j], {
 	"element": "mark2",
-	//"className": "mark2",
+	"className": "mark2",
 	"acrossElements": true,
 	"separateWordSearch": false,
 	"diacritics": false}); 
