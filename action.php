@@ -136,7 +136,7 @@ else
 }
 	
 $result =file_get_contents($url);
-
+echo $result;
  
 //$result2= file_get_contents($url);
 //if(strcmp($result, $result2)<"0"){
