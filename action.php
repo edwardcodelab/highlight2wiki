@@ -174,11 +174,13 @@ foreach($dom->getElementsByTagName('*') as $node)
 if($allow_javascript===0){  //javascript_conf
 /*$html = preg_replace('/<\s*script.+?<\s*\/\s*script.*?>/si', ' ', $html );  */ 
 foreach($dom->getElementsByTagName('script') as $node){$node->nodeValue="";}
+echo'javascript cleared.';
 }
 
 if($allow_css===0){ //css conf
 /*$html = preg_replace('/<\s*style.+?<\s*\/\s*script.*?>/si', ' ', $html );  */
 foreach($dom->getElementsByTagName('style') as $node){$node->nodeValue="";}
+echo'css cleared.';
 }
 
 
