@@ -44,7 +44,7 @@
             selectedTextString = selectedText.toString();
 			var instance = new Mark(document.getElementById("wanttext"));
             
-			var lines = selectedTextString.split('\n\n');    // lines is an array of strings
+			var lines = selectedTextString.split('\n');    // lines is an array of strings
 			for (var j = 0; j < lines.length; j++) {
 			instance.mark(lines[j], {
             "element": "span",
