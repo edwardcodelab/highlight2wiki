@@ -50,7 +50,7 @@
             "diacritics": false}); 
 			
 			//selectedTextStringNN=selectedTextString.replace(/(\r\n|\n|\r)/gm, "");
-			document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += selectedTextStringNN + selectedText + "\n\n";
+			document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += selectedTextString + selectedText + "\n\n";
    
 			//let selectedText = window.getSelection();
             //selectedText = selectedText.toString();
