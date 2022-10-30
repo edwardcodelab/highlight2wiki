@@ -209,7 +209,7 @@ function edittag(){
 function loadH2WFunc(){ 
             jQuery('img').removeAttr('srcset');
 			jQuery('#wanttext img').each(function() {
-            if (jQuery(this).attr('src').includes('http')){
+            if (jQuery(this).attr('src').indexOf('http') > -1)){
             }else{
 			var scrurl= url_host + jQuery(this).attr('src');	
 		    jQuery(this).attr('src', scrurl);
