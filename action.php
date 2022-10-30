@@ -204,9 +204,10 @@ echo '<iframe src="'.$targeturl.'" id="edtop" width="100%" height="800 px" onloa
         <!--Button to invoke the 
          function to get the selected text-->
         <input type="button" value="Highlight" class="unibutton"   onpointerup="getSelectedText()">
-        <input type="button" value="mark.js"  class="unibutton" onpointerup="markjs()" hidden="hidden" >
          <input type="button" value="Load" class="unibutton" onpointerup="loadhighlight();">  
 	 <input type="button" value="Revision" class="unibutton" onpointerup="loadhighlightrevision();"> 
+        <input type="button" value="mark.js"  class="unibutton" onpointerup="markjs()">
+        <input type="button" value="loadMark.js"  class="unibutton" onpointerup="loadmarkjs()" >
          <input type = "button" value="Tag" class="unibutton" onclick="edittag();">
          <!-- <input type="text" id="tagarea"  class="unienter" width="48" hidden="hidden" >-->
          <input type="button" class="unibutton" value=" ↑ " onpointerup="document.getElementById(\'wanttext\').scrollIntoView();" >  

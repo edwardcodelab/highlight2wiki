@@ -61,6 +61,33 @@
             
         } 
 
+function loadmarkjs(){
+var textArea = document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value; 
+ 
+var lines = textArea.split('\n\n');    // lines is an array of strings
+var instance2 = new Mark(document.getElementById("wanttext")); 
+// Loop through all lines
+for (var j = 0; j < lines.length; j++) {
+  //  highlight(lines[j]);
+    console.log(lines[j]);
+
+    instance2.mark(lines[j], {
+	"element": "mark2",
+	//"className": "mark2",
+	"acrossElements": true,
+	"separateWordSearch": false,
+	"diacritics": false}); 
+
+
+
+
+
+}	
+	
+}
+
+
+
 
 
     function highlight_2(){
@@ -89,6 +116,10 @@ function highlight(text) {
 }
 
 
+
+
+
+
 function loadhighlight(){ // load the hightlight text from dokuwiki textarea
 var textArea = document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value; 
  
@@ -97,8 +128,6 @@ var lines = textArea.split('\n\n');    // lines is an array of strings
 // Loop through all lines
 for (var j = 0; j < lines.length; j++) {
     highlight(lines[j]);
-
-
     console.log(lines[j]);
  //document.testform.selectedtext.value += lines[j];
 }
