@@ -230,6 +230,6 @@ function loadH2WFunc(){
 
 function HLdarkmode(){
 	
-	document.getElementById('wanttext').classList.toggle("dark-mode");
+	jQuery('#wanttext').toggleClass("dark-mode");
 	
 }

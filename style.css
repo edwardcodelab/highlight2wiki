@@ -18,6 +18,10 @@
   }
 }
 
+#ednavbar.dark-mode {
+  background-color: black;
+  color: white;
+}
 
 
 
@@ -41,10 +45,7 @@ markfr:hover {
   
 }  
 
-#ednavbar.dark-mode {
-  background-color: black;
-  color: white;
-}
+
 
 .mark2{
   background-color: yellow;
