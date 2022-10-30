@@ -43,14 +43,15 @@
             selectedTextString = selectedText.toString();
             
 			var instance = new Mark(document.getElementById("wanttext"));
-            instance.mark(selectedTextString, {
+            instance.mark(selectedText, {
             "element": "mark2",
             "className": "mark2",
             "acrossElements": true,
             "separateWordSearch": false,
             "diacritics": false}); 
-			selectedTextString=selectedTextString.replace(/(\r\n|\n|\r)/gm, "");
-			document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += selectedTextString + selectedText + "\n\n";
+			
+			selectedTextStringNN=selectedTextString.replace(/(\r\n|\n|\r)/gm, "");
+			document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += selectedTextStringNN + selectedText + "\n\n";
    
 			//let selectedText = window.getSelection();
             //selectedText = selectedText.toString();
