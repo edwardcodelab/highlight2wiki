@@ -204,14 +204,14 @@ function edittag(){
  
  
  
-	 
+
 	 
 function loadH2WFunc(){ 
             jQuery('img').removeAttr('srcset');
 			jQuery('#wanttext img').each(function() {
             if (jQuery(this).attr('src').includes('http')){
             }else{
-		    jQuery(this).attr('src').val(url+jQuery(this).attr('src'));
+		    jQuery(this).attr('src', url+jQuery(this).attr('src'));
 		    alert(jQuery(this).attr('src'));
 	        }
 			});
