@@ -41,7 +41,7 @@ markfr:hover {
   
 }  
 
-.dark-mode {
+#ednavbar.dark-mode {
   background-color: black;
   color: white;
 }
