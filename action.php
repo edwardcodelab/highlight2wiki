@@ -168,8 +168,8 @@ foreach($dom->getElementsByTagName('*') as $node)
 	    foreach($attribute->name as $AName){
 			echo'<p>'.$AName.'</p>';
 		    if(in_array($AName, $allowed_attributes)){
-				if($AName =="src" && stripos($attribute->value,"http:")=false){
-				$node->setAttribute($AName, $url.$attribute->value);	
+				if($AName =="src" && stripos($node->getAttribute($attribute->name) ,"http:")=false){
+				$node->setAttribute($AName, $url.$node->getAttribute($attribute->name));	
 					
 				}
 			continue;	
