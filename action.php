@@ -110,7 +110,7 @@ $purl = parseurl($url);
 
 
 
-if (function_exists('curl_init()')) //check if curl function existed
+if (function_exists('curl_init')) //check if curl function existed
 {
      $ch = curl_init();
      $agent = 'Mozilla/5.0 (Linux; Android 12; SM-G998U) AppleWebKit/537.36 (KHTML, like Gecko)   Chrome/106.0.0.0 Mobile Safari/537.36';
