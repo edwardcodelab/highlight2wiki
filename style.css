@@ -1,5 +1,5 @@
 #ednavbar {
-  position: fixed;
+  position: relative;
   z-index:100000000;
 }
 @media(min-width:50.1em){ /* Larger than mobile devices */
