@@ -212,7 +212,7 @@ function loadH2WFunc(){
 			jQuery('#wanttext link').remove();
 			
 			jQuery('#wanttext *').each(function() {
-			if(jQuery($(this).hasAttr("src"))) {
+			if(jQuery(this).hasAttr("src")) {
             if (jQuery(this).attr('src').indexOf('http') > -1){
             }else{
 			var scrurl= url_host + jQuery(this).attr('src');	
