@@ -210,13 +210,13 @@ function loadH2WFunc(){
             jQuery('#wanttext *').removeAttr('height width sizes style alt sizes');
 			jQuery('#wanttext *').removeClass();
 			jQuery('#wanttext link').remove();
-			
+			url_hostns =stripTrailingSlash(url_host);
 			jQuery('#wanttext img').each(function(key,value) {
 			if(jQuery(this).attr('src')!=null){
             if (jQuery(this).attr('src').includes('http')){
 			console.log('complete url:'+jQuery(this).attr('src'));
             }else{
-			var scrurl= url_host + jQuery(this).attr('src');	
+			var scrurl= url_hostns + jQuery(this).attr('src');	
 		    jQuery(this).attr('src', scrurl);
 		    console.log('addedhostroot:'+jQuery(this).attr('src'));
 	        }	
@@ -251,4 +251,10 @@ function HLdarkmode(){
 	
 	jQuery('div').toggleClass("dark-mode");
 	
+}
+
+
+function stripTrailingSlash(str){
+   if(str.charAt(str.length-1) == "/"){ str = str.substr(0, str.length - 1);}
+   return str
 }
