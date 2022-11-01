@@ -211,8 +211,7 @@ function loadH2WFunc(){
 			jQuery('#wanttext *').removeClass();
 			jQuery('#wanttext link').remove();
 			
-			jQuery('#wanttext img').each(function(obj)) {
-             if(obj === null) { return; } 
+			jQuery('#wanttext img').each(function()) {
             if (jQuery(this).attr('src').includes('http')){
 			console.log('complete url:'+jQuery(this).attr('src'));
             }else{
