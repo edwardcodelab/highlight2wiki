@@ -209,7 +209,7 @@ function edittag(){
 function loadH2WFunc(){ 
             jQuery('#wanttext *').removeAttr('height width sizes style alt sizes');
 			//jQuery('#wanttext img').jQuery('figure').removeAttr('height width sizes style alt sizes');
-			jQuery('#wanttext').each(function() {
+			jQuery('#wanttext img').each(function() {
             if (jQuery(this).attr('src').indexOf('http') > -1){
             }else{
 			var scrurl= url_host + jQuery(this).attr('src');	
