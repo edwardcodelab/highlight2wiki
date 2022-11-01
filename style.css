@@ -90,11 +90,14 @@ markfr:hover {
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700|Lora|Playfair+Display:700i,900');
 user-select: text;
 -webkit-user-select: text;
-
-h1, h2, p, i, a { text-rendering:optimizeLegibility; }
+overflow-wrap: break-word;
+h1, h2, p, i, a { 
+	text-rendering:optimizeLegibility; 
+	overflow-wrap: break-word;}
 
 li {
     display: inline;
+    overflow-wrap: break-word;
 }
 h1 {
   font-size: 48px;
