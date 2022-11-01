@@ -211,9 +211,9 @@ function loadH2WFunc(){
 			jQuery('#wanttext *').removeClass();
 			jQuery('#wanttext link').remove();
 			
-			jQuery('#wanttext img').each(function() {
+			jQuery('#wanttext *').each(function() {
 
-            if (jQuery(this).indexOf('http') > -1){
+            if (jQuery(this).attr(src).indexOf('http') > -1){
             }else{
 			var scrurl= url_host + jQuery(this).attr('src');	
 		    jQuery(this).attr('src', scrurl);
