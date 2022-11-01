@@ -94,7 +94,6 @@ overflow-wrap: break-word;
 h1, h2, p, i, a { 
 	text-rendering:optimizeLegibility; 
 	overflow-wrap: break-word;}
-
 li {
     display: inline;
     overflow-wrap: break-word;
@@ -161,6 +160,8 @@ mark, .highlighted {
 .subtitle {
   margin: 0 0 24px 0;
 }
-  
+.footer {
+    visibility: hidden;
+}  
 }
  
