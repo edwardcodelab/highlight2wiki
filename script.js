@@ -210,6 +210,8 @@ function loadH2WFunc(){
             jQuery('#wanttext *').removeAttr('height width sizes style alt sizes');
 			jQuery('#wanttext *').removeClass();
 			jQuery('#wanttext link').remove();
+			jQuery('#wanttext form').remove();
+			jQuery('#wanttext input').remove();
 			url_hostns =stripTrailingSlash(url_host);
 			jQuery('#wanttext img').each(function(key,value) {
 			if(jQuery(this).attr('src')!=null){
