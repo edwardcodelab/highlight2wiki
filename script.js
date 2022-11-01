@@ -213,7 +213,7 @@ function loadH2WFunc(){
 			
 			jQuery('#wanttext *').each(function() {
 
-            if (!(jQuery(this).attr('src')) || jQuery(this).indexOf('http') > -1){
+            if (jQuery(this).indexOf('http') > -1){
             }else{
 			var scrurl= url_host + jQuery(this).attr('src');	
 		    jQuery(this).attr('src', scrurl);
