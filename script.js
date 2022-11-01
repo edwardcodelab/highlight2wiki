@@ -212,17 +212,14 @@ function loadH2WFunc(){
 			jQuery('#wanttext link').remove();
 			
 			jQuery('#wanttext *').each(function() {
-			if(jQuery(this).hasAttribute("src")) {
+			
             if (jQuery(this).attr('src').indexOf('http') > -1){
             }else{
 			var scrurl= url_host + jQuery(this).attr('src');	
 		    jQuery(this).attr('src', scrurl);
 		    console.log(jQuery(this).attr('src'));
 	        }
-			}
-			if(jQuery($(this).hasAttribute("data-scr"))) {
-            jQuery(this).attr('src', jQuery(this).attr('data-src'));
-            }
+			jQuery($(this).querySelectorAll('img[data-scr]').attr('src', jQuery(this).attr('data-src'));
 			
 			});
         if (document.getElementsByTagName("title")[1] !=null){
