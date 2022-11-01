@@ -208,7 +208,7 @@ img
   color: white;
 }
 
-body.dark-mode {
+div.dark-mode {
   background-color: black;
   color: white;
 }
