@@ -6,7 +6,7 @@
   #ednavbar{
    bottom: 100px;
     width: 100%;
-
+   overflow-wrap:break-word;
   }
 }
 
@@ -14,7 +14,7 @@
   #ednavbar{
    bottom: 50px;
     width: 100%;
-	overflow-y: auto; 
+	
   }
 }
 
