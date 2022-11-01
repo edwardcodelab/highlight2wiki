@@ -210,7 +210,7 @@ function loadH2WFunc(){
             jQuery('#wanttext *').removeAttr('height width sizes style alt sizes');
 			jQuery('#wanttext *').removeClass();
 			jQuery('#wanttext link').remove();
-			//jQuery('#wanttext img').jQuery('figure').removeAttr('height width sizes style alt sizes');
+			
 			jQuery('#wanttext *').each(function() {
             if (jQuery(this).attr('src').indexOf('http') > -1){
             }else{
@@ -218,8 +218,13 @@ function loadH2WFunc(){
 		    jQuery(this).attr('src', scrurl);
 		    console.log(jQuery(this).attr('src'));
 	        }
+			
+			if(jQuery($(this).hasAttr("data-scr"))) {
+            jQuery(this).attr('src', jQuery(this).attr('data-src'));
+            }
+			
 			});
-            if (document.getElementsByTagName("title")[1] !=null){
+        if (document.getElementsByTagName("title")[1] !=null){
 	    var papertitle = document.getElementsByTagName("title")[1].textContent;
 		}else{
 	    var papertitle = url;
