@@ -212,7 +212,7 @@ function loadH2WFunc(){
 			jQuery('#wanttext link').remove();
 			
 			jQuery('#wanttext img').each(function(key,value) {
-			 if(value === null) { break; }	
+			if(value!=null){
             if (jQuery(this).attr('src').includes('http')){
 			console.log('complete url:'+jQuery(this).attr('src'));
             }else{
@@ -226,7 +226,7 @@ function loadH2WFunc(){
 				console.log('change to ');
 				console.log(jQuery(this).attr('src'));
 			}
-			});
+			}});
 
         if (document.getElementsByTagName("title")[1] !=null){
 	    var papertitle = document.getElementsByTagName("title")[1].textContent;
