@@ -91,6 +91,7 @@ markfr:hover {
 user-select: text;
 -webkit-user-select: text;
 overflow-wrap: break-word;
+font-size: 0;
 h1, h2, p, i, a { 
 	text-rendering:optimizeLegibility; 
 	overflow-wrap: break-word;}
