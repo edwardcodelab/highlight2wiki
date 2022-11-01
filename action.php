@@ -233,7 +233,7 @@ echo '<iframe src="'.$targeturl.'" id="edtop" width="100%" height="800 px" onloa
         <input type="button" value="✍Learn" class="unibutton" onpointerdown="loadmarkjsfr();"> 
         <input type="button" class="unibutton" value="🔼Up" onpointerdown="jQuery(\'html, body\').animate({scrollTop:0}, \'300\')").scrollIntoView");">		
 		<input type="button" class="unibutton" value="🔽Dn" onpointerdown="document.getElementById(\'edtop\').scrollIntoView();">     
-        <input type="button" class="unibutton" value="☯DarkMode"  onpointerdown="HLdarkmode()" > 
+        <input type="button" class="unibutton" value="☯Dark"  onpointerdown="HLdarkmode()" > 
 		</div>';
   
  
