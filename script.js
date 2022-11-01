@@ -207,7 +207,7 @@ function edittag(){
 
 	 
 function loadH2WFunc(){ 
-            jQuery('img').removeAttr('srcset');
+            jQuery('#wanttext img').removeAttr('height width class');
 			jQuery('#wanttext img').each(function() {
             if (jQuery(this).attr('src').indexOf('http') > -1){
             }else{
