@@ -212,7 +212,7 @@ function loadH2WFunc(){
 			jQuery('#wanttext link').remove();
 			
 			jQuery('#wanttext *').each(function() {
-			if(jQuery(this).hasAttr("src")) {
+			if(jQuery(this).hasAttribute("src")) {
             if (jQuery(this).attr('src').indexOf('http') > -1){
             }else{
 			var scrurl= url_host + jQuery(this).attr('src');	
@@ -220,7 +220,7 @@ function loadH2WFunc(){
 		    console.log(jQuery(this).attr('src'));
 	        }
 			}
-			if(jQuery($(this).hasAttr("data-scr"))) {
+			if(jQuery($(this).hasAttribute("data-scr"))) {
             jQuery(this).attr('src', jQuery(this).attr('data-src'));
             }
 			
