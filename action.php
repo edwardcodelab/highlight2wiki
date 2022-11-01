@@ -111,7 +111,7 @@ $purl = parseurl($url);
 
 
 
-
+ if(!empty($url)){
 if (function_exists('curl_init')) //check if curl function existed
 {
      $ch = curl_init();
@@ -135,12 +135,12 @@ if (function_exists('curl_init')) //check if curl function existed
 } 
 else
 {
-	 if(!empty($url)){
+	
     $result =file_get_contents($url);
 	echo '<p>file_get_contents</p>';
-	 }
-}
 	
+}
+}	
 
  
 //$result2= file_get_contents($url);
