@@ -219,7 +219,7 @@ function loadH2WFunc(){
 		    jQuery(this).attr('src', scrurl);
 		    console.log(jQuery(this).attr('src'));
 	        }
-			jQuery($(this).querySelectorAll('img[data-scr]').attr('src', jQuery(this).attr('data-src'));
+			jQuery(this).querySelectorAll('img[data-scr]').attr('src', jQuery(this).attr('data-src'));
 			
 			});
         if (document.getElementsByTagName("title")[1] !=null){
