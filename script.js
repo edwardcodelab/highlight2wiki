@@ -221,7 +221,7 @@ function loadH2WFunc(){
 		    console.log(jQuery(this).attr('src'));
 	        }	
             if(jQuery(this).attr('data-src')!=null){
-				jQuery(this).attr('src', jQuery(this).attr('data-src');
+				jQuery(this).attr('src', jQuery(this).attr('data-src'));
 			}
 			});
 
