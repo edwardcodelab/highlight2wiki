@@ -214,14 +214,14 @@ function loadH2WFunc(){
 			jQuery('#wanttext img').each(function() {
 
             if (jQuery(this).attr('src').includes('http')){
-			console.log(jQuery(this).attr('src'));
+			console.log('complete url'+jQuery(this).attr('src'));
             }else{
 			var scrurl= url_host + jQuery(this).attr('src');	
 		    jQuery(this).attr('src', scrurl);
-		    console.log(jQuery(this).attr('src'));
+		    console.log('addedhostroot'+jQuery(this).attr('src'));
 	        }	
             if(jQuery(this).attr('data-src')!=null){
-				console.log(jQuery(this).attr('data-src'));
+				console.log('datasrc='jQuery(this).attr('data-src'));
 				jQuery(this).attr('src', jQuery(this).attr('data-src'));
 				console.log('change to ');
 				console.log(jQuery(this).attr('src'));
