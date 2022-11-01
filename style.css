@@ -114,8 +114,7 @@ markfr:hover {
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700|Lora|Playfair+Display:700i,900');
 user-select: text;
 -webkit-user-select: text;
--moz-box-sizing: border-box; 
-box-sizing: border-box;
+/*-moz-box-sizing: border-box; box-sizing: border-box;*/
 overflow-wrap: break-word;
 font-size: 0;
 -webkit-text-size-adjust: none;
