@@ -212,6 +212,8 @@ function loadH2WFunc(){
 			jQuery('#wanttext link').remove();
 			jQuery('#wanttext form').remove();
 			jQuery('#wanttext input').remove();
+			
+			//add host root to img src
 			url_hostns =stripTrailingSlash(url_host);
 			jQuery('#wanttext img').each(function(key,value) {
 			if(jQuery(this).attr('src')!=null){
@@ -221,14 +223,37 @@ function loadH2WFunc(){
 			var scrurl= url_hostns + jQuery(this).attr('src');	
 		    jQuery(this).attr('src', scrurl);
 		    console.log('addedhostroot:'+jQuery(this).attr('src'));
-	        }	
+	        }
+
+            //convert data-src to src			
             if(jQuery(this).attr('data-src')!=null){
 				console.log('datasrc:'+jQuery(this).attr('data-src'));
 				jQuery(this).attr('src', jQuery(this).attr('data-src'));
 				console.log('change to ');
 				console.log(jQuery(this).attr('src'));
 			}
-			}});
+			}
+			});
+
+            jQuery('#wanttext *').each(function(key,value) {
+			if(jQuery(this).attr('href')!=null){
+            if (jQuery(this).attr('href').includes('http')){
+			console.log('link complete url:'+jQuery(this).attr('href'));
+            }else{
+			var scrurl= url_hostns + jQuery(this).attr('href');	
+		    jQuery(this).attr('href', scrurl);
+		    console.log('link addedhostroot:'+jQuery(this).attr('href'));
+	        }
+			}
+			});
+
+
+
+
+
+
+
+
 
         if (document.getElementsByTagName("title")[1] !=null){
 	    var papertitle = document.getElementsByTagName("title")[1].textContent;
