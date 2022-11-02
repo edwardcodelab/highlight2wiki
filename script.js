@@ -219,8 +219,9 @@ function loadH2WFunc(){
 			jQuery('#wanttext img').each(function(key,value) {
 			if(jQuery(this).attr('src')!=null){
             if (jQuery(this).attr('src').includes('http')){
-			console.log('complete url:'+jQuery(this).attr('src'));
+			console.log('completed url:'+jQuery(this).attr('src'));
             }else{
+			console.log('image src link broken:'+jQuery(this).attr('src'));	
 			var scrurl= url_hostns + jQuery(this).attr('src');	
 		    jQuery(this).attr('src', scrurl);
 		    console.log('addedhostroot:'+jQuery(this).attr('src'));
@@ -230,8 +231,7 @@ function loadH2WFunc(){
             if(jQuery(this).attr('data-src')!=null){
 				console.log('datasrc:'+jQuery(this).attr('data-src'));
 				jQuery(this).attr('src', jQuery(this).attr('data-src'));
-				console.log('change to ');
-				console.log(jQuery(this).attr('src'));
+				console.log('src change to '+ jQuery(this).attr('src'));
 			}
 			}
 			});
@@ -241,10 +241,10 @@ function loadH2WFunc(){
             if (jQuery(this).attr('href').includes('http')){
 			console.log('link complete url:'+jQuery(this).attr('href'));
             }else{
-			console.log('link boken:'+jQuery(this).attr('href'));
+			console.log('link broken:'+jQuery(this).attr('href'));
 			var scrurl= url_hostns + jQuery(this).attr('href');	
 		    jQuery(this).attr('href', scrurl);
-		    console.log('link addedhostroot:'+jQuery(this).attr('href'));
+		    console.log('link hostroot added:'+jQuery(this).attr('href'));
 	        }
 			}
 			});
