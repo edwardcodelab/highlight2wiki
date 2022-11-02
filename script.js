@@ -212,6 +212,7 @@ function loadH2WFunc(){
 			jQuery('#wanttext link').remove();
 			jQuery('#wanttext form').remove();
 			jQuery('#wanttext input').remove();
+			jQuery('#wanttext button').remove();
 			
 			//add host root to img src
 			url_hostns =stripTrailingSlash(url_host);
