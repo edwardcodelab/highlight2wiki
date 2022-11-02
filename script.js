@@ -210,7 +210,7 @@ function loadH2WFunc(){
             jQuery('#wanttext *').removeAttr('height width sizes style alt sizes');
 			jQuery('#wanttext *').removeClass();
 			jQuery('#wanttext link').remove();
-			jQuery('#wanttext form').remove();
+			jQuery('#wanttext textarea').remove();
 			jQuery('#wanttext input').remove();
 			jQuery('#wanttext button').remove();
 			
@@ -261,11 +261,11 @@ function loadH2WFunc(){
 	    var papertitle = document.getElementsByTagName("title")[1].textContent;
 		}else{
 	    var papertitle = url;
-		}
+		   }
            if (document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value == ""){
            document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += "====== "+papertitle+" ====== \r\n [["+url+"|" + papertitle + "]]  [[?do=highlight2wiki&ur="+url+"|Hightlight]]--"+timestamp+"\r\n\n";
           document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += "{{tag> }}\r\n\n"; //add tag syntax        		  
-}
+           }
 
  
 jQuery('#wanttext').append('<input type="button" class="unibutton" value="Clean!"  onpointerdown="cleanorphantext()" > ');
