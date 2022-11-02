@@ -267,11 +267,15 @@ function loadH2WFunc(){
           document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += "{{tag> }}\r\n\n"; //add tag syntax        		  
 }
 
- //jQuery('wanttext').contents().filter(function(){return this.nodeType != 1;}).remove();
-jQuery('#wanttext').append('<input type="button" class="unibutton" value="clear orphan text"  onpointerdown="jQuery("wanttext").contents().filter(function(){return this.nodeType != 1;}).remove();" > ');
+ 
+jQuery('#wanttext').append('<input type="button" class="unibutton" value="clear orphan text"  onpointerdown="cleanorphantext()" > ');
 
 }
 
+function cleanorphantext(){
+jQuery('wanttext').contents().filter(function(){return this.nodeType != 1;}).remove();	
+	
+}
 
 
 function HLdarkmode(){
