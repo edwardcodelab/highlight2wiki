@@ -268,14 +268,14 @@ function loadH2WFunc(){
            }
 
  
-//jQuery('#wanttext').append('<input type="button" class="unibutton" value="Clean!"  onpointerdown="cleanorphantext()" > ');
+jQuery('#wanttext').append('<input type="button" class="unibutton" value="Clean!"  onpointerdown="cleanorphantext()" > ');
 
 }
 
-//function cleanorphantext(){
-//jQuery('wanttext').contents().filter(function(){return this.nodeType != 1;}).remove();	
-//alert('orphan text cleared');
-//}
+function cleanorphantext(){
+jQuery('wanttext').contents().filter(function(){return this.nodeType != 1;}).remove();	
+alert('orphan text cleared');
+}
 
 
 function HLdarkmode(){
