@@ -240,6 +240,7 @@ function loadH2WFunc(){
             if (jQuery(this).attr('href').includes('http')){
 			console.log('link complete url:'+jQuery(this).attr('href'));
             }else{
+			console.log('link boken:'+jQuery(this).attr('href'));
 			var scrurl= url_hostns + jQuery(this).attr('href');	
 		    jQuery(this).attr('href', scrurl);
 		    console.log('link addedhostroot:'+jQuery(this).attr('href'));
