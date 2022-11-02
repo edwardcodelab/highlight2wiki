@@ -268,7 +268,7 @@ function loadH2WFunc(){
 }
 
  //jQuery('wanttext').contents().filter(function(){return this.nodeType != 1;}).remove();
-$('#wanttext').append('<input type="button" class="unibutton" value="clear orphan text"  onpointerdown="jQuery('wanttext').contents().filter(function(){return this.nodeType != 1;}).remove();" > ')
+jQuery('#wanttext').append('<input type="button" class="unibutton" value="clear orphan text"  onpointerdown="jQuery('wanttext').contents().filter(function(){return this.nodeType != 1;}).remove();" > ')
 
 }
 
