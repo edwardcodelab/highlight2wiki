@@ -228,7 +228,7 @@ echo' <script>	</script>';
 
 
 /* change the target page name to title+ crc64 code    */
-if($title_as_pagename =1){
+if($title_as_pagename ==1){
 $titles2=RemoveSpecialChar(Strip_tags($titles));
 if (strlen(utf8_encode($titles2))>150){     //check the title length if longer than 150
 $titles2 = substr(utf8_encode($titles2),0,150);  
