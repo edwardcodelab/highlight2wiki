@@ -37,7 +37,8 @@ class action_plugin_highlight2wiki extends \dokuwiki\Extension\ActionPlugin
                             'type'    => 'text/javascript',
                             'charset' => 'utf-8',
                             '_data'   => '',
-                            'src'     => DOKU_BASE.'lib/plugins/highlight2wiki/script.js');
+							'src'     => 'https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js'); // Mark.Js library included
+                            //'src'     => DOKU_BASE.'lib/plugins/highlight2wiki/script.js');
     }
     public function allowMyAction(Doku_Event $event, $param) {
         if($event->data != 'highlight2wiki') return; 
@@ -63,14 +64,19 @@ class action_plugin_highlight2wiki extends \dokuwiki\Extension\ActionPlugin
         //$titlestring = preg_replace('/%u([0-9A-F]+)/', '&#x$1;', $title); // convert the unicode dont need title parameter anymore
         //$titlestring = html_entity_decode($titlestring, ENT_COMPAT, 'UTF-8');
         $url=$_GET['ur'];
-        $urlkey = crc64($url); 
+        //$urlkey = preg_replace( "#^[^:/.]*[:/]+#i", "",$url );
+        //$urlkey = urlencode($urlkey); //crc64($url); 
+        //if (strlen($urlkey)>250){
+            $urlkey = crc64($url);
+        //} 
         $yournamespace = $this->getConf('highlight_namespace');
         $allowed_tags = $this->getConf('allowed_tags');
         $allow_css = $this->getConf('allow_css');
         $allow_javascript = $this->getConf('allow_javascript');
+        $title_as_pagename = $this->getConf('title_as_pagename');
 	    $targeturl= DOKU_BASE."doku.php?id=$yournamespace:$urlkey&do=edit"; 
         $highlightactionurl = DOKU_BASE."doku.php?do=highlight2wiki";
-	
+	    $url_host = parse_url($url,PHP_URL_SCHEME)."://".parse_url($url, PHP_URL_HOST) ;
 	 
 	  
 	 if(empty($url)){   
@@ -78,20 +84,22 @@ class action_plugin_highlight2wiki extends \dokuwiki\Extension\ActionPlugin
         echo '<input id="linktogo">';
          echo '<input type="button" onclick="location.href=\'?do=highlight2wiki&ur=\'+encodeURIComponent(getElementById(\'linktogo\').value);" value="Highlight2wiki" />';	    
 	 }
-        echo '<p>'.$url.'</p>';
-		echo '<p>'.$urlkey.'</p>';
-	    echo '<p>'.$yournamespace.'</p>';
+	    echo'<input type="button" value="DarkMode"  class="unibutton" onpointerdown="HLdarkmode()">';
         echo '<script>
+		    console.log("'.$url.'");
+			console.log("'.$urlkey.'");
+			console.log("'.$yournamespace.'");
             var titlestring ="'.$titlestring.'";
             var url = "'.$url.'"
             var urlkey = "'.$urlkey.'";
             var timestamp = "'.$timestamp.'";
             var targeturl = "'.$targeturl.'";
             var highlightactionurl ="'.$highlightactionurl.'";
+			var url_host ="'.$url_host.'";
             console.log(titlestring + url + urlkey);
             </script>';
         
-        echo'<div id="wanttext">';
+
 
 // From URL to get webpage contents.
  
@@ -108,8 +116,8 @@ $purl = parseurl($url);
 
 
 
-
-if (function_exists('curl_init()')) //check if curlfunction existed
+ if(!empty($url)){
+if (function_exists('curl_init')) //check if curl function existed
 {
      $ch = curl_init();
      $agent = 'Mozilla/5.0 (Linux; Android 12; SM-G998U) AppleWebKit/537.36 (KHTML, like Gecko)   Chrome/106.0.0.0 Mobile Safari/537.36';
@@ -117,19 +125,27 @@ if (function_exists('curl_init()')) //check if curlfunction existed
      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
      curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
      curl_setopt($ch, CURLOPT_URL, $url);
-     $result = curl_exec($ch);
+     $result1 = curl_exec($ch);
 	 //grab URL and pass it to the variable.
 	 // Initialize a CURL session.
 	 //$result =file_get_contents($url);
+	 $result2 =file_get_contents($url);
+	 //echo '<p>'.strlen($result1).'</p>';
+	 //echo '<p>'.strlen($result2).'</p>';
+	 if(strlen($result2)>strlen($result1)){ //check length of each result
+     $result = $result2;
+	 }else{
+	 $result = $result1;
+	 }
 } 
 else
 {
-	 if(!empty($url)){
-    $result =file_get_contents($url);
-	 }
-}
 	
-
+    $result =file_get_contents($url);
+	echo '<p>file_get_contents</p>';
+	
+}
+}	
 
  
 //$result2= file_get_contents($url);
@@ -146,7 +162,7 @@ $dom = new DOMDocument();
 
 
 //$dom->loadHTML($result);    
-@$dom->loadHTML(mb_convert_encoding($result, 'HTML-ENTITIES', 'UTF-8'),LIBXML_NOWARNING);    
+$dom->loadHTML(mb_convert_encoding($result, 'HTML-ENTITIES', 'UTF-8'));    
 
 
 
@@ -155,21 +171,32 @@ foreach($dom->getElementsByTagName('*') as $node)
 {
     foreach($node->attributes as $attribute)
     {
-        if (in_array($attribute->name, $allowed_attributes)) {
-            continue;
-        }
-        $node->removeAttributeNode($attribute);
+		
+	    foreach($attribute->name as $AName){
+		    if(in_array($AName, $allowed_attributes)){
+			continue;	
+			}else{
+			$node->removeAttributeNode($attribute);
+			}
+		
+		}
+		
+        //if (in_array($attribute->name, $allowed_attributes)) {continue;}
+        //$node->removeAttributeNode($attribute);
+		//removeAttribute('href')
     }
 }
 
 if($allow_javascript==0){  //javascript_conf
 /*$html = preg_replace('/<\s*script.+?<\s*\/\s*script.*?>/si', ' ', $html );  */ 
 foreach($dom->getElementsByTagName('script') as $node){$node->nodeValue="";}
+echo'<script>console.log("no js")</script>';
 }
 
 if($allow_css==0){ //css conf
 /*$html = preg_replace('/<\s*style.+?<\s*\/\s*script.*?>/si', ' ', $html );  */
 foreach($dom->getElementsByTagName('style') as $node){$node->nodeValue="";}
+echo'<script>console.log("no css")</script>';
 }
 
 
@@ -178,43 +205,66 @@ echo '<meta Content-Type" content="text/html; charset="UTF-8">';
 $titles = $dom->saveHTML($dom->getElementsByTagName('title')->item(0));
 $html = $dom->saveHTML($dom->getElementsByTagname('body')->item(0));
 
-
+if($allow_javascript==0){ 
+$html = preg_replace('/<\s*script.+?<\s*\/\s*script.*?>/si', ' ', $html );
+}
 $html=preg_replace("/<body[^>]+\>/ix", "", $html); 
 $html = str_replace("<body>", "", $html);
 $html = str_replace("</body>", "", $html);
 
-
+echo'<div id="wanttext">';
 echo $titles;
 echo $html;
 }
 
 echo "</div>";  
 
+// add onload function
+echo' <script>	</script>';	
+
+
+
+
+
+
+/* change the target page name to title+ crc64 code    */
+if($title_as_pagename =1){
+$titles2=RemoveSpecialChar(Strip_tags($titles));
+if (strlen(utf8_encode($titles2))>150){     //check the title length if longer than 150
+$titles2 = substr(utf8_encode($titles2),0,150);  
+$titles2 = utf8_decode($titles2);
+}
+$titles2 = $titles2."-".crc64($url);
+$targeturl= DOKU_BASE."doku.php?id=$yournamespace:$titles2&do=edit"; 
+}
 /*  dokuwiki editor iframe  */
-echo '<iframe src="'.$targeturl.'" id="edtop" width="100%" height="800 px"></iframe>';
+echo '<iframe src="'.$targeturl.'" id="edtop" width="100%" height="800 px" onload="loadH2WFunc()"></iframe>';
  
         echo'<div id="ednavbar">
-        <!--Button to invoke the 
-         function to get the selected text-->
-        <input type="button" value="Highlight" class="unibutton"   onpointerup="getSelectedText()">
-        <!--<input type="button" value="iOS_highlight"  class="unibutton" onpointerup="highlight2()" hidden="hidden" >  -->
-         <input type="button" value="Load" class="unibutton" onpointerup="loadhighlight();">  
-	 <input type="button" value="Revision" class="unibutton" onpointerup="loadhighlightrevision();"> 
-         <input type = "button" value="Tag" class="unibutton" onclick="edittag();">
-         <!-- <input type="text" id="tagarea"  class="unienter" width="48" hidden="hidden" >-->
-         <input type="button" class="unibutton" value=" ↑ " onpointerup="document.getElementById(\'wanttext\').scrollIntoView();" >  
-
-</div>';
+        <!--Button to invoke the function to get the selected text-->
+        <!--<input type="button" value="Highlight" class="unibutton"   onpointerdown ="getSelectedText()">-->
+        <!--<input type="button" value="Load" class="unibutton" onpointerdown ="loadhighlight();">-->
+	    <input type="button" value="✎Mark"  class="unibutton" onpointerdown="markjs()">
+        <input type="button" value="⌛Load"  class="unibutton" onpointerdown="loadmarkjs()" >
+		<input type = "button" value="〒Tag" class="unibutton" onpointerdown="edittag();">
+        <input type="button" value="✍Learn" class="unibutton" onpointerdown="loadmarkjsfr();"> 
+        <input type="button" class="unibutton" value="🔼Up" onpointerdown="jQuery(\'html, body\').animate({scrollTop:0}, \'300\')").scrollIntoView");">		
+		<input type="button" class="unibutton" value="🔽Dn" onpointerdown="document.getElementById(\'edtop\').scrollIntoView();">     
+        <input type="button" class="unibutton" value="☯Dark"  onpointerdown="HLdarkmode()" > 
+		</div>';
+  
  
-
 echo '    
         <!--Form to show the selected text as output-->
         <form align="right"
           <input type="button" value="Go to Top " onclick="document.getElementById(\'wanttext\').scrollIntoView();" > 
           <p> </p>
  
-        </form>
-';
+        </form>';
+		
+		
+	
+		
       //  <form name="testform" hidden="hidden" >
            // <textarea name="selectedtext" 
                       //rows="3"
@@ -315,3 +365,11 @@ function is_utf8($str) {
     return true; // didn't find any invalid characters
 }
  
+ 
+ function RemoveSpecialChar($str) {
+// Using str_replace() function
+// to replace the word
+$res = str_replace( array( '\'', '"',
+',' , ';', '<', '>','&',':','/' ), '', $str);
+return $res;     
+ }
