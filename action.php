@@ -89,14 +89,14 @@ class action_plugin_highlight2wiki extends \dokuwiki\Extension\ActionPlugin
 		    console.log("'.$url.'");
 			console.log("'.$urlkey.'");
 			console.log("'.$yournamespace.'");
-            var titlestring ="'.$titlestring.'";
+           
             var url = "'.$url.'"
             var urlkey = "'.$urlkey.'";
             var timestamp = "'.$timestamp.'";
             var targeturl = "'.$targeturl.'";
             var highlightactionurl ="'.$highlightactionurl.'";
 			var url_host ="'.$url_host.'";
-            console.log(titlestring + url + urlkey);
+
             </script>';
         
 
@@ -162,7 +162,7 @@ $dom = new DOMDocument();
 
 
 //$dom->loadHTML($result);    
-$dom->loadHTML(mb_convert_encoding($result, 'HTML-ENTITIES', 'UTF-8'));    
+@$dom->loadHTML(mb_convert_encoding($result, 'HTML-ENTITIES', 'UTF-8'));    
 
 
 
@@ -171,7 +171,7 @@ foreach($dom->getElementsByTagName('*') as $node)
 {
     foreach($node->attributes as $attribute)
     {
-		
+		if(is_iterable($attribute->name)){
 	    foreach($attribute->name as $AName){
 		    if(in_array($AName, $allowed_attributes)){
 			continue;	
@@ -180,7 +180,7 @@ foreach($dom->getElementsByTagName('*') as $node)
 			}
 		
 		}
-		
+		}
         //if (in_array($attribute->name, $allowed_attributes)) {continue;}
         //$node->removeAttributeNode($attribute);
 		//removeAttribute('href')
