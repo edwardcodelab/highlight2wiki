@@ -125,6 +125,8 @@ if (function_exists('curl_init')) //check if curl function existed
      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
      curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
      curl_setopt($ch, CURLOPT_URL, $url);
+	 curl_setopt($ch, CURLOPT_LOW_SPEED_LIMIT, 1);   // cancel if below 1 byte/second
+     curl_setopt($ch, CURLOPT_LOW_SPEED_TIME, 30);   // for a period of 30 seconds
      $result1 = curl_exec($ch);
 	 //grab URL and pass it to the variable.
 	 // Initialize a CURL session.
