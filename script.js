@@ -263,7 +263,7 @@ function loadH2WFunc(){
 	    var papertitle = url;
 		   }
            if (document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value == ""){
-           document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += "====== "+papertitle+" ====== \r\n [["+url+"|" + papertitle + "]]  [[?do=highlight2wiki&ur="+url+"|Hightlight]]--"+timestamp+"\r\n\n";
+           document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += "====== "+papertitle+" ====== \r\n [["+url+"|" + papertitle + "]]  [[?do=highlight2wiki&ur="+url+"|✍Highlight]]--"+timestamp+"\r\n\n";
           document.getElementById("edtop").contentWindow.document.getElementsByTagName("textarea")[0].value += "{{tag> }}\r\n\n"; //add tag syntax        		  
            }
 
