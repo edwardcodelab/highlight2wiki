@@ -120,7 +120,7 @@ $purl = parseurl($url);
 if (function_exists('curl_init')) //check if curl function existed
 {
      $ch = curl_init();
-     $agent = 'Mozilla/5.0 (Linux; Android 12; SM-G998U) AppleWebKit/537.36 (KHTML, like Gecko)   Chrome/106.0.0.0 Mobile Safari/537.36';
+     $agent = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36';
      curl_setopt($ch, CURLOPT_USERAGENT, $agent);// Return Page contents.
      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
      curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
@@ -129,7 +129,19 @@ if (function_exists('curl_init')) //check if curl function existed
 	 //grab URL and pass it to the variable.
 	 // Initialize a CURL session.
 	 //$result =file_get_contents($url);
-	 $result2 =file_get_contents($url);
+	 
+		$context2 = stream_context_create(
+    array(
+        "http" => array(
+            "header" => "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36"
+        ),
+		  "ssl"=>array(
+        "verify_peer"=>false,
+        "verify_peer_name"=>false,)
+    ) 
+	); 
+	 
+	 $result2 =file_get_contents($url, false, $context2);
 	 //echo '<p>'.strlen($result1).'</p>';
 	 //echo '<p>'.strlen($result2).'</p>';
 	 if(strlen($result2)>strlen($result1)){ //check length of each result
@@ -140,8 +152,17 @@ if (function_exists('curl_init')) //check if curl function existed
 } 
 else
 {
-	
-    $result =file_get_contents($url);
+	$context = stream_context_create(
+    array(
+        "http" => array(
+            "header" => "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36"
+        ),
+		  "ssl"=>array(
+        "verify_peer"=>false,
+        "verify_peer_name"=>false,)
+    )
+    );
+    $result =file_get_contents($url, false, $context);
 	echo '<p>file_get_contents</p>';
 	
 }
