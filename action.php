@@ -103,120 +103,72 @@ class action_plugin_highlight2wiki extends \dokuwiki\Extension\ActionPlugin
 
 // From URL to get webpage contents.
  
-function parseUrl($url = "") {
-    if (empty($url)) {
-        return false;
-    }
-    
-    // Decode URL if it's encoded, then ensure proper encoding for special characters
-    $url = urldecode($url);
-    // Only encode specific parts if needed, preserving original structure
-    return filter_var($url, FILTER_SANITIZE_URL);
+ function parseurl($newurl="") // to convert encode url
+{
+   // $newurl = rawurlencode($newurl);
+    $a = array("%3A","%2F","%40","+");
+    $b = array(":","/","@"," ");
+    $newurl = str_replace($a,$b,$newurl);
+    return $newurl;
 }
+ 
+$purl = parseurl($url);
 
-function fetchPageContent($url) {
-    if (empty($url)) {
-        return false;
-    }
 
-    $cleanUrl = parseUrl($url);
-    if (!$cleanUrl) {
-        return false;
-    }
 
-    // Default user agent
-    $userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36';
-    
-    // Try cURL first if available
-    if (function_exists('curl_init')) {
-        try {
-            $ch = curl_init();
-            
-            $curlOptions = [
-                CURLOPT_URL => $cleanUrl,
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_FOLLOWLOCATION => true,
-                CURLOPT_USERAGENT => $userAgent,
-                CURLOPT_TIMEOUT => 30,
-                CURLOPT_CONNECTTIMEOUT => 10,
-                CURLOPT_SSL_VERIFYPEER => false,
-                CURLOPT_SSL_VERIFYHOST => false,
-                CURLOPT_LOW_SPEED_LIMIT => 1,
-                CURLOPT_LOW_SPEED_TIME => 30,
-                CURLOPT_ENCODING => 'gzip, deflate', // Handle compressed responses
-                CURLOPT_HEADER => false
-            ];
-            
-            curl_setopt_array($ch, $curlOptions);
-            
-            $result = curl_exec($ch);
-            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-            $error = curl_error($ch);
-            
-            curl_close($ch);
-            
-            if ($result !== false && $httpCode >= 200 && $httpCode < 400) {
-                return $result;
-            }
-            
-            if (!empty($error)) {
-                error_log("cURL Error: " . $error);
-            }
-        } catch (Exception $e) {
-            error_log("cURL Exception: " . $e->getMessage());
-        }
-    }
-    
-    // Fallback to file_get_contents
-    try {
-        $contextOptions = [
-            'http' => [
-                'method' => 'GET',
-                'header' => [
-                    "User-Agent: $userAgent",
-                    "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-                    "Accept-Encoding: gzip, deflate"
-                ],
-                'timeout' => 30.0
-            ],
-            'ssl' => [
-                'verify_peer' => false,
-                'verify_peer_name' => false
-            ]
-        ];
-        
-        $context = stream_context_create($contextOptions);
-        $result = @file_get_contents($cleanUrl, false, $context);
-        
-        // Check HTTP response code
-        if ($result !== false && !empty($http_response_header)) {
-            foreach ($http_response_header as $header) {
-                if (preg_match('/^HTTP\/\d\.\d\s+(\d+)/', $header, $matches)) {
-                    $statusCode = intval($matches[1]);
-                    if ($statusCode >= 200 && $statusCode < 400) {
-                        return $result;
-                    }
-                    break;
-                }
-            }
-        }
-        
-        return $result !== false ? $result : false;
-        
-    } catch (Exception $e) {
-        error_log("file_get_contents Exception: " . $e->getMessage());
-        return false;
-    }
+ if(!empty($url)){
+if (function_exists('curl_init')) //check if curl function existed
+{
+     $ch = curl_init();
+     $agent = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36';
+     curl_setopt($ch, CURLOPT_USERAGENT, $agent);// Return Page contents.
+     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+     curl_setopt($ch, CURLOPT_URL, $url);
+	 curl_setopt($ch, CURLOPT_LOW_SPEED_LIMIT, 1);   // cancel if below 1 byte/second
+     curl_setopt($ch, CURLOPT_LOW_SPEED_TIME, 30);   // for a period of 30 seconds
+     $result1 = curl_exec($ch);
+	 //grab URL and pass it to the variable.
+	 // Initialize a CURL session.
+	 //$result =file_get_contents($url);
+	 
+		$context2 = stream_context_create(
+    array(
+        "http" => array(
+            "header" => "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36"
+        ),
+		  "ssl"=>array(
+        "verify_peer"=>false,
+        "verify_peer_name"=>false,)
+    ) 
+	); 
+	 
+	 $result2 =file_get_contents($url, false, $context2);
+	 //echo '<p>'.strlen($result1).'</p>';
+	 //echo '<p>'.strlen($result2).'</p>';
+	 if(strlen($result2)>strlen($result1)){ //check length of each result
+     $result = $result2;
+	 }else{
+	 $result = $result1;
+	 }
+} 
+else
+{
+	$context = stream_context_create(
+    array(
+        "http" => array(
+            "header" => "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36"
+        ),
+		  "ssl"=>array(
+        "verify_peer"=>false,
+        "verify_peer_name"=>false,)
+    )
+    );
+    $result =file_get_contents($url, false, $context);
+	echo '<p>file_get_contents</p>';
+	
 }
-
-// Usage example:
-$url = "https://example.com";
-$content = fetchPageContent($url);
-if ($content !== false) {
-    echo $content;
-} else {
-    echo "Failed to fetch page content";
-}
+}	
 
  
 //$result2= file_get_contents($url);
